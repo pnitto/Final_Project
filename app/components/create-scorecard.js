@@ -1,5 +1,6 @@
 import React from 'react';
 import store from '../store';
+import ScorecardList from '../components/scorecard-list';
 
 const AddScorecard = React.createClass({
 
@@ -12,10 +13,13 @@ const AddScorecard = React.createClass({
   },
   render(){
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="text" placeholder="Add Scorecard" ref="name"/>
-        <input type="submit" value="Add Scorecard" />
-      </form>
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" placeholder="Add Scorecard" ref="name"/>
+          <input type="submit" value="Add Scorecard" />
+        </form>
+        <ScorecardList />
+    </div>
     )
   }
 })
