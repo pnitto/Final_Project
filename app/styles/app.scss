@@ -1,0 +1,18 @@
+// @import 'bourbon';
+// @import 'neat';
+@import '~normalize.css/normalize.css';
+@import '~font-awesome/scss/font-awesome.scss';
+@import 'foundation';
+//--Sign Up Page--//
+.signup-div {
+  width: 60%;
+}
+//--Login Page--//
+.login-div {
+  width: 60%;
+}
+
+//--Home Page--//
+.begin-round-btn{
+  margin: auto;
+}
