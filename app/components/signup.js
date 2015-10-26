@@ -6,8 +6,9 @@ const SignUp = React.createClass({
       <div className="signup-div">
       <h1>Sign Up</h1>
       <form className="">
-      <input type="email" ref="email"/>
-      <input type="password" ref="password" />
+      <input type="email" placeholder="Email" ref="email"/>
+      <input type="password" placeholder="Password" ref="password" />
+      <input type="submit" value= "Sign Up" />
       </form>
     </div>
 

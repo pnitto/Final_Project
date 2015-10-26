@@ -8,6 +8,7 @@ var Login = React.createClass({
       <form>
         <input type="email" placeholder="Provide Email Address" />
         <input type="password" placeholder="Provide Password" />
+        <input type="submit" value="Login" />
       </form>
     </div>
     );
