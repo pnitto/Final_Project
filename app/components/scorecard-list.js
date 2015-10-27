@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import store from '../store';
 
+
 const ScorecardList = React.createClass({
   propTypes: {
     scorecards: React.PropTypes.object
@@ -29,13 +30,17 @@ const ScorecardList = React.createClass({
     return (
       <div>
         <h1>Your Scorecards</h1>
-        <ul>
-          {scorecards.map((x)=>{
-            return (<li key={x.objectId}>{x.name}<button onClick={this.handleDelete.bind(this,x)} className="delete-scorecard-btn" type="submit">X</button></li>)
-          })}
-        </ul>
+          <ul>
+            {scorecards.map((x)=>{
+              return (<li key={x.objectId}><Link state={{scorecard:x}} to={`/scorecards/${x.objectId}`}>{x.name}</Link><button onClick={this.handleDelete.bind(this,x)} className="delete-scorecard-btn" type="submit">X</button></li>)
+            })}
+          </ul>
       </div>
     )
   }
 });
+
+
+
+
 export default ScorecardList

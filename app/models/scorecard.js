@@ -1,13 +1,17 @@
 import Backbone from 'backbone';
 import _ from 'underscore';
+import User from './user'
+
 
 const Scorecard = Backbone.Model.extend({
   idAttribute: "objectId",
+  urlRoot:"https://api.parse.com/1/classes/Scorecards",
   defaults(){
     return {
+      creator: { toJSON: function() {} },
       name: "",
-      holes: Array.apply(null,Array(18)).map(()=>{return {
-        holenumber:"",
+      holes: Array.apply(null,Array(18)).map((i)=>{return {
+        holenumber:i,
         partype: "",
         playerscore: "",
         fircheckbox: false,
@@ -18,6 +22,22 @@ const Scorecard = Backbone.Model.extend({
   )
   }
   },
+  toJSON(options){
+    if(options){
+      return _.extend({},this.attributes,{
+        creator: {
+          "__type":"Pointer",
+          "className":"_User",
+          "objectId": this.get('creator').id
+        }
+      })
+    }else{
+      return _.extend({},this.attributes,{
+        creator: this.get('creator').toJSON
+      });
+    }
+  },
+
 
 });
 export default Scorecard;
