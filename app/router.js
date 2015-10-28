@@ -10,6 +10,7 @@ import Home from './components/home';
 import CreateScorecard from './components/create-scorecard';
 import EditHole from './components/edit-hole';
 import ScorecardDetail from './components/scorecard-detail';
+import Chat from './components/comment-list';
 import store from './store';
 
 
@@ -30,9 +31,10 @@ ReactDOM.render((
       <IndexRoute component={Home} />
       <Route path="login" component={Login} onEnter={requireNotAuth}/>
       <Route path="signup" component={SignUp} onEnter={requireNotAuth}/>
-      <Route path="/create-scorecard" component={CreateScorecard} onEnter={requireAuth}/>
+      <Route path="create-scorecard" component={CreateScorecard} onEnter={requireAuth}/>
       <Route path="scorecards/:id" component={ScorecardDetail} onEnter={requireAuth}/>
-      <Route path="hole/:id" component={EditHole} />
+      <Route path="scorecards/:sc/hole/:id" component={EditHole} onEnter={requireAuth}/>
+      <Route path="chat" component={Chat} />
     </Route>
   </Router>
 ), document.getElementById('application'))

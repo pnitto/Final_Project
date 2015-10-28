@@ -14,9 +14,9 @@ const Scorecard = Backbone.Model.extend({
         holenumber: index + 1,
         partype: 3,
         playerscore: 0,
-        fircheckbox: false,
-        gircheckbox: false,
-        putts_per_hole:0
+        fir: false,
+        gir: false,
+        putts: 0
       };
     }
   )

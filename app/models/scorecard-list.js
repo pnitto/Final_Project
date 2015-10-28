@@ -1,4 +1,5 @@
 import Scorecard from '../models/scorecard';
+import Backbone from 'backbone';
 
 const ScorecardList = Backbone.Collection.extend({
   model: Scorecard,
