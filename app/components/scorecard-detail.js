@@ -1,5 +1,5 @@
 import React from 'react';
-import {History} from 'react-router';
+import {History, Link} from 'react-router';
 import store from '../store';
 import Scorecard from '../models/scorecard';
 import $ from 'jquery';
@@ -27,7 +27,7 @@ const ScorecardDetail = React.createClass({
         <ul>
           {scorecard.holes.map((x)=>
             <li key={Math.round(Math.random() * 10000)}>
-                <h1>Hole: {Number(x.holenumber)}</h1>
+                <Link to={`/hole/${x.holenumber}`} state={{hole:x}}>Hole: {Number(x.holenumber)}</Link>
             </li>
           )}
         </ul>

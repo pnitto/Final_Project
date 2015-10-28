@@ -8,7 +8,7 @@ import Login from './components/login';
 import SignUp from './components/signup';
 import Home from './components/home';
 import CreateScorecard from './components/create-scorecard';
-import AddHole from './components/create-hole';
+import EditHole from './components/edit-hole';
 import ScorecardDetail from './components/scorecard-detail';
 import store from './store';
 
@@ -32,7 +32,7 @@ ReactDOM.render((
       <Route path="signup" component={SignUp} onEnter={requireNotAuth}/>
       <Route path="/create-scorecard" component={CreateScorecard} onEnter={requireAuth}/>
       <Route path="scorecards/:id" component={ScorecardDetail} onEnter={requireAuth}/>
-      <Route path="create-hole" component={AddHole} />
+      <Route path="hole/:id" component={EditHole} />
     </Route>
   </Router>
 ), document.getElementById('application'))
