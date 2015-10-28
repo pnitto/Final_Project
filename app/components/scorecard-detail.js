@@ -1,17 +1,17 @@
 import React from 'react';
 import {History} from 'react-router';
 import store from '../store';
-import Scorecard from '../models/scorecard'
+import Scorecard from '../models/scorecard';
+import $ from 'jquery';
 
 
 const ScorecardDetail = React.createClass({
   mixins:[History],
   getInitialState(){
     return {
-      scorecard: (this.props.location.state.scorecard) || {holes:[]}
+      scorecard: (this.props.location.state.scorecard) || { holes:[] }
     }
   },
-
   componentWillMount(){
     if(!this.state.scorecard) {
       let scorecardId = this.props.params.id;
@@ -21,15 +21,47 @@ const ScorecardDetail = React.createClass({
   },
   render(){
     let scorecard = this.state.scorecard;
-    //console.log(this.props.location.state.scorecard)
+    console.log(scorecard.holes)
     return (
       <div>
         <ul>
-          {scorecard.holes.map((x)=><li>{x.holenumber}</li>)}
+          {scorecard.holes.map((x)=>
+            <li key={Math.round(Math.random() * 10000)}>
+                <h1>Hole: {Number(x.holenumber)}</h1>
+            </li>
+          )}
         </ul>
       </div>
     )
     }
 })
-
+/*
+$(document).ready(function(){
+      $('.center').slick({
+  centerMode: true,
+  centerPadding: '60px',
+  slidesToShow: 3,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1
+      }
+    }
+  ]
+})
+})
+*/
 export default ScorecardDetail;

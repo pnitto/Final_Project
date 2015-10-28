@@ -18,10 +18,12 @@ const AddScorecard = React.createClass({
   render(){
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" placeholder="Add Scorecard" ref="name"/>
-          <input type="submit" value="Add Scorecard" />
-        </form>
+        <fieldset>
+          <form onSubmit={this.handleSubmit}>
+            <input type="text" placeholder="Add Scorecard" ref="name"/>
+            <button type="submit">Add Scorecard</button>
+          </form>
+        </fieldset>
         <ScorecardList />
     </div>
     )

@@ -10,13 +10,13 @@ const Scorecard = Backbone.Model.extend({
     return {
       creator: { toJSON: function() {} },
       name: "",
-      holes: Array.apply(null,Array(18)).map((i)=>{return {
-        holenumber:i,
-        partype: "",
-        playerscore: "",
+      holes: Array.apply(null,Array(18)).map((i,index)=>{return {
+        holenumber: index + 1,
+        partype: 3,
+        playerscore: 0,
         fircheckbox: false,
         gircheckbox: false,
-        putts_per_hole:""
+        putts_per_hole:0
       };
     }
   )
@@ -37,8 +37,6 @@ const Scorecard = Backbone.Model.extend({
       });
     }
   },
-
-
 });
 export default Scorecard;
 

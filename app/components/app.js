@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link, IndexLink} from 'react-router';
 import store from '../store'
-
+///React burger menu
+//React components
 var App = React.createClass({
   propTypes: {
     children: React.PropTypes.node

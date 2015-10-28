@@ -9,6 +9,7 @@ const SignUp = React.createClass({
     location: React.PropTypes.object
   },
   mixins: [History],
+  
   getInitialState(){
     return {
       error: false
