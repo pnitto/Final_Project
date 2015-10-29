@@ -1,13 +1,14 @@
 import Backbone from 'backbone';
+import _ from 'underscore';
 
 const Comment = Backbone.Model.extend({
-  idAttriute: 'objectId',
+  idAttribute: "objectId",
   defaults(){
     return {
       creator: {toJSON:function(){}},
       courseName: "",
       comment: "",
-      rating:"",
+      rating: 0,
     }
   },
   toJSON(options){

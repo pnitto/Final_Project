@@ -34,7 +34,7 @@ ReactDOM.render((
       <Route path="create-scorecard" component={CreateScorecard} onEnter={requireAuth}/>
       <Route path="scorecards/:id" component={ScorecardDetail} onEnter={requireAuth}/>
       <Route path="scorecards/:sc/hole/:id" component={EditHole} onEnter={requireAuth}/>
-      <Route path="chat" component={Chat} />
+      <Route path="chat" component={Chat} onEnter={requireAuth}/>
     </Route>
   </Router>
 ), document.getElementById('application'))

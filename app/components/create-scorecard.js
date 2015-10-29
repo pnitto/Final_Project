@@ -25,7 +25,7 @@ const AddScorecard = React.createClass({
           </form>
         </fieldset>
         <ScorecardList />
-    </div>
+      </div>
     )
   }
 })

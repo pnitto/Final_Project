@@ -6,7 +6,7 @@ import Scorecard from './models/scorecard';
 import ScorecardList from './models/scorecard-list';
 import CommentList from './models/comment-list';
 
-let session, scorecards;
+let session, scorecards,comments;
 
 export default {
   getSession(){
