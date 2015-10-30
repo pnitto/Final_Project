@@ -3,31 +3,28 @@ import {History, Link} from 'react-router';
 import store from '../store';
 import Scorecard from '../models/scorecard';
 import $ from 'jquery';
+import BackboneMixin from '../mixins/backbone'
 
 
 const ScorecardDetail = React.createClass({
-  mixins:[History],
-  getInitialState(){
-    return {
-      scorecard: (this.props.location.state.scorecard) || { holes:[] }
-    }
-  },
-  componentWillMount(){
-    if(!this.state.scorecard) {
-      let scorecardId = this.props.params.id;
-      let scorecard = new Scorecard({ objectId: scorecardId })
-      scorecard.fetch().then(() => this.setState({ scorecard : scorecard }))
-    }
+
+  mixins:[History, BackboneMixin],
+
+  getModels(){
+    let scorecardId = this.props.params.scorecardId;
+    return { scorecard: store.getScorecard(scorecardId) }
   },
   render(){
     let scorecard = this.state.scorecard;
+    console.log(scorecard)
     let scorecardId = this.props.params.id;
+    let holes = scorecard && scorecard.holes || [];
     return (
       <div>
         <ul>
-          {scorecard.holes.map((x)=>
+          {holes.map((x)=>
             <li key={Math.round(Math.random() * 10000)}>
-                <Link to={`scorecards/${scorecardId}/hole/${x.holenumber}`} state={{hole:x}}>Hole: {Number(x.holenumber)}</Link>
+                <Link to={`/scorecards/${scorecardId}/hole/${x.holenumber}`} state={{hole:x}}>Hole: {Number(x.holenumber)}</Link>
             </li>
           )}
         </ul>
@@ -35,6 +32,8 @@ const ScorecardDetail = React.createClass({
     )
     }
 })
+
+export default ScorecardDetail;
 /*
 $(document).ready(function(){
       $('.center').slick({
@@ -64,4 +63,3 @@ $(document).ready(function(){
 })
 })
 */
-export default ScorecardDetail;

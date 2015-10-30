@@ -4,6 +4,30 @@
 @import '~font-awesome/scss/font-awesome.scss';
 @import 'foundation';
 
+//-Nav-//
+#application{
+  height: 800px;
+  background: url("http://www.hdwallpaperscool.com/wp-content/uploads/2015/01/technology-golf-course-club-premium-high-definition-wallpaper-download-golf-course-images-free-145x145.jpg");
+  background-repeat:no-repeat;
+  background-position:bottom;
+  background-size:cover;
+  width:100%;
+}
+.nav{
+  height: 75px;
+  background-color:#333;
+}
+.nav-li{
+  display:inline-block;
+  padding-right:4%;
+  margin-left: 0.2%;
+}
+.nav-li:hover{
+  color:white;
+}
+.username{
+  color:white;
+}
 
 //--Sign Up Page--//
 .signup-div {

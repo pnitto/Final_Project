@@ -1,32 +1,32 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, History} from 'react-router';
 import store from '../store';
+import BackboneMixin from '../mixins/backbone';
+
 
 
 const ScorecardList = React.createClass({
   propTypes: {
     scorecards: React.PropTypes.object
   },
-  getDefaultProps(){
+  mixins: [BackboneMixin,History],
+
+  getModels(){
     return {
       scorecards: store.getScorecards()
     }
   },
   componentWillMount(){
-    this.props.scorecards.fetch();
-    this.props.scorecards.on('sync add remove', this.forceUpdate.bind(this,null), this)
-  },
-  componentWillUnmount(){
-    this.props.scorecards.off('sync add remove', null, this);
+    store.fetchScorecards();
   },
   handleDelete(scorecard,e){
-    console.log(scorecard)
-    var delete_scorecard = this.props.scorecards.get(scorecard.objectId)
-    delete_scorecard.destroy();
+    store.destroyScorecard(scorecard).then(()=>{
+    this.history.replaceState(null,'/');
+  })
   },
   render(){
-    var scorecards = this.props.scorecards.toJSON();
-    //console.log(scorecards)
+    var scorecards = this.state.scorecards;
+    console.log(scorecards)
     return (
       <div>
         <h1>Your Scorecards</h1>

@@ -2,14 +2,16 @@ import React from 'react';
 import store from '../store';
 import ScorecardList from '../components/scorecard-list';
 import { History } from 'react-router';
+import BackboneMixin from '../mixins/backbone';
 
 const AddScorecard = React.createClass({
 
+  mixins: [BackboneMixin],
+
   handleSubmit(e){
     e.preventDefault();
-    store.getScorecards().create({
+    store.saveScorecard({
       name: this.refs.name.value,
-      creator: store.getSession().get('currentUser')
     }, {wait:true});
 
     this.refs.name.value = '';

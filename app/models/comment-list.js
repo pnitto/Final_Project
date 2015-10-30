@@ -5,7 +5,7 @@ const CommentList = Backbone.Collection.extend({
   model: Comment,
   url: "https://api.parse.com/1/classes/Comments",
   parse(response){
-    response.results
+    return response.results
   }
 });
 

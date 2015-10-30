@@ -1,6 +1,7 @@
 import Backbone from 'backbone';
 import _ from 'underscore';
 import User from './user'
+import store from '../store';
 
 
 const Scorecard = Backbone.Model.extend({
@@ -22,6 +23,10 @@ const Scorecard = Backbone.Model.extend({
   )
   }
   },
+  parse(response){
+    response.creator = new User(_.omit(response.creator,'__type','className'),{parse:true});
+    return response
+  },
   toJSON(options){
     if(options){
       return _.extend({},this.attributes,{
@@ -37,6 +42,15 @@ const Scorecard = Backbone.Model.extend({
       });
     }
   },
+  save(){
+    let currentUser = store.getSession().currentUser;
+    if(currentUser){
+      this.set('creator', new User(currentUser));
+      Backbone.Model.prototype.save.apply(this, arguments);
+    }else{
+      return new Promise((_, reject)=> reject("Invalide session"));
+    }
+  }
 });
 export default Scorecard;
 

@@ -44,11 +44,14 @@ const Session = Backbone.Model.extend({
     },
     invalidate() {
       localStorage.removeItem('parse-session-token');
-      this.trigger('invalidationSucceeded')
+      this.set('currentUser',null);
       window.location.reload();
     },
-    isAuthenticated() {
-      return !!this.get('currentUser')
+    toJSON() {
+      return {
+        currentUser: this.get('currentUser') && this.get('currentUser').toJSON(),
+        isAuthenticated: !!this.get('currentUser')
+      };
     }
 });
 export default Session;

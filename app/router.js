@@ -15,12 +15,12 @@ import store from './store';
 
 
 function requireAuth(nextState,replaceState){
-  if(!store.getSession().isAuthenticated()){
+  if(!store.getSession().isAuthenticated){
     replaceState({nextPathname: nextState.location.pathname},'/login')
   }
 }
 function requireNotAuth(nextState, replaceState){
-  if(store.getSession().isAuthenticated()){
+  if(store.getSession().isAuthenticated) {
     replaceState({},'/')
   }
 }
@@ -32,9 +32,9 @@ ReactDOM.render((
       <Route path="login" component={Login} onEnter={requireNotAuth}/>
       <Route path="signup" component={SignUp} onEnter={requireNotAuth}/>
       <Route path="create-scorecard" component={CreateScorecard} onEnter={requireAuth}/>
-      <Route path="scorecards/:id" component={ScorecardDetail} onEnter={requireAuth}/>
-      <Route path="scorecards/:sc/hole/:id" component={EditHole} onEnter={requireAuth}/>
-      <Route path="chat" component={Chat} onEnter={requireAuth}/>
+      <Route path="scorecards/:scorecardId" component={ScorecardDetail} onEnter={requireAuth}/>
+      <Route path="scorecards/:scorecardId/hole/:holeId" component={EditHole} onEnter={requireAuth}/>
+      <Route path="chat" component={Chat} />
     </Route>
   </Router>
 ), document.getElementById('application'))

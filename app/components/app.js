@@ -1,62 +1,49 @@
 import React from 'react';
 import {Link, IndexLink} from 'react-router';
 import store from '../store'
+import BackboneMixin from '../mixins/backbone';
 ///React burger menu
 //React components
 var App = React.createClass({
   propTypes: {
     children: React.PropTypes.node
   },
-  componentWillMount(){
-    store.getSession().on('change', this.forceUpdate.bind(this,null),this);
-  },
-  componentWillUnmount(){
-    store.getSession().off('change',null,this)
+
+  mixins: [BackboneMixin],
+
+  getModels(){
+    return {
+      session: store.getSession()
+        }
   },
   handleLogout(e){
     e.preventDefault();
-    session.invalidate();
+    store.invalidateSession();
   },
   render() {
-    let session = store.getSession();
-    let loggedIn = session.isAuthenticated();
-    let currentUser = session.get('currentUser')
-    let username = (currentUser && currentUser.get('username')) || 'Me';
+    let session = this.state.session;
+    let loggedIn = session.isAuthenticated;
+    let currentUser = session.currentUser;
+    let username = (currentUser && currentUser.username) || 'Me';
 
     return (
       <div>
-        <nav className="top-bar" data-topbar role="navigation">
-         <ul className="title-area">
-           <li className="name">
-             <h1><IndexLink to="/">Home</IndexLink></h1>
-           </li>
-         </ul>
-         <section className="top-bar-section">
-           {/* Left Nav Section */}
-           <ul className="left">
-             <li><Link to="/signup">Sign Up</Link></li>
-             <li><Link to="/login">Login</Link></li>
-             <li><Link to="/create-scorecard">Add Scorecard</Link></li>
-             <li><Link to="/chat">Chat</Link></li>
+        <nav className="nav">
+         <ul className="nav-ul">
+           <li className="nav-li"><IndexLink to="/"><i className="fa fa-home fa-2x"></i></IndexLink></li>
+             <li className="nav-li"><Link to="/signup">Sign Up</Link></li>
+             <li className="nav-li"><Link to="/login">Login</Link></li>
+             <li className="nav-li"><Link to="/create-scorecard">Add Scorecard</Link></li>
+             <li className="nav-li"><Link to="/chat"><i className="fa fa-comment fa-2x"></i></Link></li>
+             <li className="nav-li"><a href="#" onClick={this.handleLogout}>Logout</a></li>
+               <li><span className="username">{username}</span></li>
            </ul>
-           <ul className="right">
-             {loggedIn &&
-             <li className="has-dropdown">
-               <a href="#">{username}</a>
-               <ul className="dropdown">
-                 <li>
-                   <a href="#" onClick={this.handleLogout}>Logout</a>
-                 </li>
-               </ul>
-             </li>
-           }
-           </ul>
-         </section>
-       </nav>
+         </nav>
        {this.props.children}
       </div>
     );
   }
 });
+
 
 export default App;

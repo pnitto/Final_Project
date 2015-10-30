@@ -9,7 +9,7 @@ const SignUp = React.createClass({
     location: React.PropTypes.object
   },
   mixins: [History],
-  
+
   getInitialState(){
     return {
       error: false
@@ -22,21 +22,17 @@ const SignUp = React.createClass({
     let username = email;
     let password = this.refs.password.value;
 
-    let user = new User({ username, password, email });
-
-    user.save().then(()=>{
-      return store.getSession().authenticate({sessionToken: user.get('sessionToken')}).then(()=>{
-        let {location} = this.props;
-        if(location.state && location.state.nextPathname){
-          this.history.replaceState(null, location.state.nextPathname);
-      }else{
-        this.history.replaceState(null, '/')
-      }
-    });
-  },(xhr) => {
-    this.setState({ error: xhr.responseJSON.error })
-  })
-  },
+    store.createUser({username, password, email}).then(() => {
+          let { location } = this.props;
+          if (location.state && location.state.nextPathname) {
+            this.history.replaceState(null, location.state.nextPathname);
+          } else {
+            this.history.replaceState(null, '/');
+          }
+        }, (xhr) => {
+          this.setState({ error: xhr.responseJSON.error });
+        });
+      },
   render(){
     return (
       <div className="signup-div">
