@@ -26,7 +26,6 @@ const ScorecardList = React.createClass({
   },
   render(){
     var scorecards = this.state.scorecards;
-    console.log(scorecards)
     return (
       <div>
         <h1>Your Scorecards</h1>

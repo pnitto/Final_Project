@@ -38,7 +38,6 @@ const Store = _.extend({}, Backbone.Events,{
       return {};
     }
   },
-
   saveScorecard(scorecard,options){
     return scorecards.create(scorecard,options)
   },

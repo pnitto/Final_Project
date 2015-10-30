@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import {Router, IndexRoute, Route} from 'react-router';
 
 import App from './components/app';
-//import Signup from './components/signup';
 import Login from './components/login';
 import SignUp from './components/signup';
 import Home from './components/home';
@@ -33,7 +32,7 @@ ReactDOM.render((
       <Route path="signup" component={SignUp} onEnter={requireNotAuth}/>
       <Route path="create-scorecard" component={CreateScorecard} onEnter={requireAuth}/>
       <Route path="scorecards/:scorecardId" component={ScorecardDetail} onEnter={requireAuth}/>
-      <Route path="scorecards/:scorecardId/hole/:holeId" component={EditHole} onEnter={requireAuth}/>
+      <Route path="scorecards/:scorecardId/hole/:holeIndex" component={EditHole} onEnter={requireAuth}/>
       <Route path="chat" component={Chat} />
     </Route>
   </Router>

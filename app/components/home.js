@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link } from 'react-router';
 
 const Home = React.createClass({
 
@@ -6,7 +7,7 @@ const Home = React.createClass({
     return (
       <div>
         <h1><i>Welcome to Fore Score 2.0</i></h1>
-        <a href="" className="button begin-round-btn">Begin Round</a>
+        <Link to="/create-scorecard" className="home-scorecard-link"><button>Begin Round</button></Link>
       </div>
     )
   }

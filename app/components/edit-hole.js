@@ -11,7 +11,7 @@ const EditHole = React.createClass({
 
   getModels(){
     let scorecardId = this.props.params.scorecardId;
-    return {scorecard:store.getScorecard(scorecardId)}
+    return {scorecard: store.getScorecard(scorecardId)}
   },
 
   handleEdit() {
@@ -20,54 +20,59 @@ const EditHole = React.createClass({
     })
   },
   handleChange(prop,e){
-    let newState = {};
-    newState[prop] = {
-      $set: e.target.value
+    var holeData = {
+        partype: Number(this.refs.partype.value),
+        playerscore: Number(this.refs.playerscore.value),
+        fir: this.refs.fir.checked,
+        gir: this.refs.gir.checked,
+        putts: Number(this.refs.putts.value),
+        holenumber: Number(this.props.params.holeIndex) + 1
     };
+
+    var newScorecard = update(this.state.scorecard, {
+      holes: {
+        $splice: [
+          [this.props.params.holeIndex, 1, holeData]
+        ]
+      }
+    });
+
     this.setState({
-      scorecard: update(this.state.scorecard, newState)
+      scorecard: newScorecard
     });
   },
   handleSave(e){
     e.preventDefault();
-    var scorecard = this.state.scorecard;
-    var holeData = {
-        partype: this.refs.partype.value,
-        playerscore: this.refs.playerscore.value,
-        fir: this.refs.fir.value,
-        gir: this.refs.gir.value,
-        putts: this.refs.putts.value
-    };
-    store.saveScorecard(scorecard,holeData)
+    store.saveScorecard(this.state.scorecard);
   },
   render(){
     let scorecard = this.state.scorecard;
     let holes = scorecard && scorecard.holes || [];
-    let hole = holes && holes[this.props.params.holeId] || {};
+    let hole = holes && holes[this.props.params.holeIndex] || {};
+    console.log(hole);
     //want the default value to be whatever is currently stored in that attribute or the default value if it is a new hole
     return (
       <fieldset>
         <h1>Hole {hole.holenumber}</h1>
         <form onSubmit={this.handleSave}>
-
           <label>Par Type</label>
-          <select name="select"ref="partype">
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+          <select name="select" ref="partype" onChange={this.handleChange} value={hole.partype}>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
 
           <label>Your Score</label>
-          <input type="number" ref="playerscore" onChange={this.handleChange.bind(this,'playerscore')} defaultValue={hole.playerscore}/>
+          <input type="number" ref="playerscore" onChange={this.handleChange} value={hole.playerscore}/>
 
           <label>Number of Putts</label>
-          <input type="number" ref="putts" onChange={this.handleChange.bind(this,'putts')} defaultValue={hole.putts}/>
+          <input type="number" ref="putts" onChange={this.handleChange} value={hole.putts}/>
 
           <label>Fairway in Regulation</label>
-          <input type="checkbox" ref="fir" onChange={this.handleChange.bind(this,'fir')} defaultValue={hole.fir}/>
+          <input type="checkbox" ref="fir" onChange={this.handleChange} checked={hole.fir} />
 
           <label>Green in Regulation</label>
-          <input type="checkbox" ref="gir" onChange={this.handleChange.bind(this,'gir')} defaultValue={hole.gir}/>
+          <input type="checkbox" ref="gir" onChange={this.handleChange} checked={hole.gir} />
 
           <button type="submit">Save Hole</button>
 

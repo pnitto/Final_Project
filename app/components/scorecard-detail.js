@@ -12,12 +12,12 @@ const ScorecardDetail = React.createClass({
 
   getModels(){
     let scorecardId = this.props.params.scorecardId;
+    console.log(scorecardId)
     return { scorecard: store.getScorecard(scorecardId) }
   },
   render(){
     let scorecard = this.state.scorecard;
-    console.log(scorecard)
-    let scorecardId = this.props.params.id;
+    let scorecardId = this.props.params.scorecardId;
     let holes = scorecard && scorecard.holes || [];
     return (
       <div>

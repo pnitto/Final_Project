@@ -2,11 +2,13 @@ import Backbone from 'backbone';
 import _ from 'underscore';
 import User from './user'
 import store from '../store';
+import {Link} from 'react-router';
 
 
 const Scorecard = Backbone.Model.extend({
   idAttribute: "objectId",
   urlRoot:"https://api.parse.com/1/classes/Scorecards",
+
   defaults(){
     return {
       creator: { toJSON: function() {} },
