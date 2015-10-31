@@ -28,15 +28,15 @@ var App = React.createClass({
 
     return (
       <div>
+        <p className="username">{username}</p>
         <nav className="nav">
          <ul className="nav-ul">
-           <li className="nav-li"><IndexLink to="/"><i className="fa fa-home fa-2x"></i></IndexLink></li>
-             <li className="nav-li"><Link to="/signup">Sign Up</Link></li>
-             <li className="nav-li"><Link to="/login">Login</Link></li>
-             <li className="nav-li"><Link to="/create-scorecard">Add Scorecard</Link></li>
-             <li className="nav-li"><Link to="/chat"><i className="fa fa-comment fa-2x"></i></Link></li>
-             <li className="nav-li"><a href="#" onClick={this.handleLogout}>Logout</a></li>
-               <li><span className="username">{username}</span></li>
+           <li className="nav-li"><IndexLink className="Links" to="/"><i className="fa fa-home fa-2x"></i></IndexLink></li>
+             <li className="nav-li"><Link className="Links" to="/signup">Sign Up</Link></li>
+             <li className="nav-li"><Link className="Links" to="/login">Login</Link></li>
+             <li className="nav-li"><a className="Links" href="#" onClick={this.handleLogout}>Logout</a></li>
+             <li className="nav-li"><Link className="Links" to="/create-scorecard">Add Scorecard</Link></li>
+             <li className="nav-li"><Link className="Links" to="/chat"><i className="fa fa-comment fa-2x"></i></Link></li>
            </ul>
          </nav>
        {this.props.children}

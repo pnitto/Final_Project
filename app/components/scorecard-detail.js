@@ -23,7 +23,7 @@ const ScorecardDetail = React.createClass({
       <div>
         <ul>
           {holes.map((x)=>
-            <li key={Math.round(Math.random() * 10000)}>
+            <li key={ Math.round(Math.random() * 10000) }>
                 <Link to={`/scorecards/${scorecardId}/hole/${x.holenumber}`} state={{hole:x}}>Hole: {Number(x.holenumber)}</Link>
             </li>
           )}

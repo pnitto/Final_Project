@@ -20,9 +20,7 @@ const ScorecardList = React.createClass({
     store.fetchScorecards();
   },
   handleDelete(scorecard,e){
-    store.destroyScorecard(scorecard).then(()=>{
-    this.history.replaceState(null,'/');
-  })
+    store.destroyScorecard(scorecard)
   },
   render(){
     var scorecards = this.state.scorecards;
@@ -31,7 +29,7 @@ const ScorecardList = React.createClass({
         <h1>Your Scorecards</h1>
           <ul>
             {scorecards.map((x)=>{
-              return (<li key={x.objectId}><Link state={{scorecard:x}} to={`/scorecards/${x.objectId}`}>{x.name}</Link><button onClick={this.handleDelete.bind(this,x)} className="delete-scorecard-btn" type="submit">X</button></li>)
+              return (<li key={x.objectId}><Link state={{scorecard:x}} to={`/scorecards/${x.objectId}`}>{x.name}</Link><a><i onClick={this.handleDelete.bind(this,x)} className="fa fa-trash-o fa-2x"></i></a></li>)
             })}
           </ul>
       </div>
