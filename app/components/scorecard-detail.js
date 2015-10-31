@@ -4,9 +4,25 @@ import store from '../store';
 import Scorecard from '../models/scorecard';
 import $ from 'jquery';
 import BackboneMixin from '../mixins/backbone';
-import Carousel from '../components/slider';
+import Carousel from 'nuka-carousel';
 
 
+const Slider = React.createClass({
+  propTypes: {
+    slidesToShow : React.PropTypes.number,
+    cellSpacing: React.PropTypes.number,
+    slidesToScroll: React.PropTypes.number,
+    width: React.PropTypes.string
+  },
+  mixins: [History, Carousel.ControllerMixin],
+
+  render(){
+    return (
+      <Carousel className="Carousel" slidesToShow={1} cellSpacing={20} slidesToScroll={1} width="300px">
+      </Carousel>
+    )
+}
+})
 
 const ScorecardDetail = React.createClass({
 
@@ -23,13 +39,13 @@ const ScorecardDetail = React.createClass({
     let holes = scorecard && scorecard.holes || [];
     return (
       <div>
-        <ul>
+        <Carousel className="Carousel">
           {holes.map((x)=>
-            <li key={Math.round(Math.random() * 10000)}>
+            <div key={Math.round(Math.random() * 10000)}>
                 <Link to={`/scorecards/${scorecardId}/hole/${x.holenumber}`} state={{hole:x}}>Hole: {Number(x.holenumber)}</Link>
-            </li>
+            </div>
           )}
-        </ul>
+        </Carousel>
       </div>
     )
     }
