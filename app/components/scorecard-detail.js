@@ -3,7 +3,9 @@ import {History, Link} from 'react-router';
 import store from '../store';
 import Scorecard from '../models/scorecard';
 import $ from 'jquery';
-import BackboneMixin from '../mixins/backbone'
+import BackboneMixin from '../mixins/backbone';
+import Carousel from '../components/slider';
+
 
 
 const ScorecardDetail = React.createClass({
@@ -23,7 +25,7 @@ const ScorecardDetail = React.createClass({
       <div>
         <ul>
           {holes.map((x)=>
-            <li key={ Math.round(Math.random() * 10000) }>
+            <li key={Math.round(Math.random() * 10000)}>
                 <Link to={`/scorecards/${scorecardId}/hole/${x.holenumber}`} state={{hole:x}}>Hole: {Number(x.holenumber)}</Link>
             </li>
           )}

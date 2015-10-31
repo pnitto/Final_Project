@@ -68,11 +68,17 @@ const EditHole = React.createClass({
           <label>Number of Putts</label>
           <input type="number" ref="putts" onChange={this.handleChange} value={hole.putts}/>
 
-          <label>Fairway in Regulation</label>
-          <input type="checkbox" ref="fir" onChange={this.handleChange} checked={hole.fir} />
+        <label>Fairway in Regulation</label>
+          <div className="switch">
+          <input id="fir" type="checkbox" ref="fir" onChange={this.handleChange} checked={hole.fir} />
+          <label htmlFor="fir"></label>
+          </div>
 
           <label>Green in Regulation</label>
-          <input type="checkbox" ref="gir" onChange={this.handleChange} checked={hole.gir} />
+            <div className="switch">
+            <input id="gir" type="checkbox" ref="gir" onChange={this.handleChange} checked={hole.gir} />
+            <label htmlFor="gir"></label>
+            </div>
 
           <button type="submit">Save Hole</button>
 

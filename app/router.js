@@ -10,6 +10,7 @@ import CreateScorecard from './components/create-scorecard';
 import EditHole from './components/edit-hole';
 import ScorecardDetail from './components/scorecard-detail';
 import Chat from './components/comment-list';
+import Slider from './components/slider';
 import store from './store';
 
 
@@ -34,6 +35,7 @@ ReactDOM.render((
       <Route path="scorecards/:scorecardId" component={ScorecardDetail} onEnter={requireAuth}/>
       <Route path="scorecards/:scorecardId/hole/:holeIndex" component={EditHole} onEnter={requireAuth}/>
       <Route path="chat" component={Chat} />
+      <Route path="slick-carousel" component={Slider} />
     </Route>
   </Router>
 ), document.getElementById('application'))

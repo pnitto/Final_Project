@@ -22,7 +22,7 @@
   z-index: 1;
 }
 .nav-ul{
-  margin-top: 4%;
+  margin-top: 2%;
 }
 .nav-li{
   display:inline-block;
@@ -60,11 +60,18 @@
   margin-left: 2%;
 }
 .fa-trash-o{
-  color:black;
+  color:white;
 }
 
 //--Hole Detail Page--//
 
 .bool-labels{
   display: inline-block;
+}
+
+//--Slider-Page--//
+.Carousel{
+  margin-left:20%;
+  text-align: center;
+  margin-top: 10%;
 }

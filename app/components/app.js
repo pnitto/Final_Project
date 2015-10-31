@@ -37,6 +37,7 @@ var App = React.createClass({
              <li className="nav-li"><a className="Links" href="#" onClick={this.handleLogout}>Logout</a></li>
              <li className="nav-li"><Link className="Links" to="/create-scorecard">Add Scorecard</Link></li>
              <li className="nav-li"><Link className="Links" to="/chat"><i className="fa fa-comment fa-2x"></i></Link></li>
+             <li className="nav-li"><Link className="Links" to="/slick-carousel">Slider</Link></li>
            </ul>
          </nav>
        {this.props.children}
