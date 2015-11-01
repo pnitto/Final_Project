@@ -27,14 +27,20 @@ const Chat = React.createClass({
   render(){
     var comments = this.state.comments
     return (
-      <div>
+      <div className="chat-div">
       <h1>Chat Room</h1>
       <AddComment />
-      <ul>
+      <div className="comments-list-div">
+      <ul className="chat-ul">
         {comments.map((x)=>{
-          return (<li key={Math.round(Math.random() * 100000)}>Course Name: {x.courseName}-Course Rating: {x.rating}-Course Comment: {x.comment}</li>)
+          return (<div className="comment-card-div"key={Math.round(Math.random() * 100000)}>
+                  <li>Course Name: {x.courseName}</li>
+                  <li>Course Rating: {x.rating}</li>
+                  <li>Course Comment: {x.comment}</li>
+                </div>)
         })}
       </ul>
+    </div>
       </div>
     )
   }

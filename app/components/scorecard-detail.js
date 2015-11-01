@@ -18,8 +18,7 @@ const Slider = React.createClass({
 
   render(){
     return (
-      <Carousel className="Carousel" slidesToShow={1} cellSpacing={20} slidesToScroll={1} width="300px">
-      </Carousel>
+      <Carousel className="Carousel" slidesToShow={1} cellSpacing={20} slidesToScroll={1} width="300px" />
     )
 }
 })
@@ -38,15 +37,13 @@ const ScorecardDetail = React.createClass({
     let scorecardId = this.props.params.scorecardId;
     let holes = scorecard && scorecard.holes || [];
     return (
-      <div>
-        <Carousel className="Carousel">
+      <Carousel className="Carousel">
           {holes.map((x)=>
             <div key={Math.round(Math.random() * 10000)}>
                 <Link to={`/scorecards/${scorecardId}/hole/${x.holenumber}`} state={{hole:x}}>Hole: {Number(x.holenumber)}</Link>
             </div>
           )}
         </Carousel>
-      </div>
     )
     }
 })

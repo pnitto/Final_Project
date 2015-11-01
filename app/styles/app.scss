@@ -61,8 +61,21 @@
 }
 .fa-trash-o{
   color:white;
+  padding-left: 5px;
 }
-
+.scorecard-fieldset{
+  width: 60%;
+  margin: auto;
+}
+.li {
+  display: inline-block;
+}
+.scorecard-header-l{
+    text-align:center;
+}
+.scorecard-ul{
+  list-style-type: none;
+}
 //--Hole Detail Page--//
 
 .bool-labels{
@@ -72,5 +85,21 @@
 //--Slider-Page--//
 .Carousel{
   text-align: center;
-  margin-top: 10%;
+  margin-top: 15%;
+}
+//--Chat Page--//
+.create-comment-fs{
+
+}
+.chat-div {
+  border: 2px solid black;
+}
+.comments-list-div{
+  background-color: white;
+}
+.comment-card-div{
+  border: 2px solid black;
+}
+.chat-ul {
+  list-style-type: none;
 }

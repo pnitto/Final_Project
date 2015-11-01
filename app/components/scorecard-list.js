@@ -25,11 +25,15 @@ const ScorecardList = React.createClass({
   render(){
     var scorecards = this.state.scorecards;
     return (
-      <div>
+      <div className="scorecard-header-l">
         <h1>Your Scorecards</h1>
-          <ul>
+          <ul className="scorecard-ul">
             {scorecards.map((x)=>{
-              return (<li key={x.objectId}><Link state={{scorecard:x}} to={`/scorecards/${x.objectId}`}>{x.name}</Link><a><i onClick={this.handleDelete.bind(this,x)} className="fa fa-trash-o fa-2x"></i></a></li>)
+              return (<li key={x.objectId}>
+                <Link state={{scorecard:x}} to={`/scorecards/${x.objectId}`}>
+                {x.name}
+                </Link><h5>{x.createdAt}</h5>
+                <a><i onClick={this.handleDelete.bind(this,x)} className="fa fa-trash-o fa-2x"></i></a></li>)
             })}
           </ul>
       </div>

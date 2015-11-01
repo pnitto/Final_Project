@@ -20,7 +20,7 @@ const AddScorecard = React.createClass({
   render(){
     return (
       <div>
-        <fieldset>
+        <fieldset className="scorecard-fieldset">
           <form onSubmit={this.handleSubmit}>
             <input type="text" placeholder="Add Scorecard" ref="name"/>
             <button type="submit">Add Scorecard</button>
