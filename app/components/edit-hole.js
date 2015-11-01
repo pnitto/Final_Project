@@ -4,7 +4,6 @@ import {History} from 'react-router';
 import update from 'react-addons-update';
 import BackboneMixin from '../mixins/backbone';
 
-//need hole number on the page//
 const EditHole = React.createClass({
 
   mixins: [History,BackboneMixin],
@@ -52,29 +51,29 @@ const EditHole = React.createClass({
     console.log(hole);
     //want the default value to be whatever is currently stored in that attribute or the default value if it is a new hole
     return (
-      <fieldset>
+      <fieldset className="edit-hole-fieldset">
         <h1>Hole {hole.holenumber}</h1>
         <form onSubmit={this.handleSave}>
-          <label>Par Type</label>
-          <select name="select" ref="partype" onChange={this.handleChange} value={hole.partype}>
+          <label><h3>Par Type</h3></label>
+          <select className="par-type-select" name="select" ref="partype" onChange={this.handleChange} value={hole.partype}>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
 
-          <label>Your Score</label>
+          <label><h3>Your Score</h3></label>
           <input type="number" ref="playerscore" onChange={this.handleChange} value={hole.playerscore}/>
 
-          <label>Number of Putts</label>
+          <label><h3>Number of Putts</h3></label>
           <input type="number" ref="putts" onChange={this.handleChange} value={hole.putts}/>
 
-        <label>Fairway in Regulation</label>
+        <label><h3>Fairway in Regulation</h3></label>
           <div className="switch">
           <input id="fir" type="checkbox" ref="fir" onChange={this.handleChange} checked={hole.fir} />
           <label htmlFor="fir"></label>
           </div>
 
-          <label>Green in Regulation</label>
+          <label><h3>Green in Regulation</h3></label>
             <div className="switch">
             <input id="gir" type="checkbox" ref="gir" onChange={this.handleChange} checked={hole.gir} />
             <label htmlFor="gir"></label>

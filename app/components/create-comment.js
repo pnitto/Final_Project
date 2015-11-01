@@ -25,9 +25,9 @@ const AddComment = React.createClass({
       <fieldset className="create-comment-fs">
       <form onSubmit={this.handleSubmit}>
         <label>Provide Course Name</label>
-        <input type="text" ref="course" />
+        <input type="text" ref="course" className="course-name"/>
         <label>Rate A Course</label>
-        <select ref="rating">
+        <select ref="rating" className="course-rating">
           <option>0</option>
           <option>1</option>
           <option>2</option>
@@ -36,7 +36,7 @@ const AddComment = React.createClass({
           <option>5</option>
         </select>
         <label>Add Comment</label>
-        <textarea type="text" ref="comment" />
+        <textarea type="text" ref="comment" className="comment-textarea"/>
         <button type="submit">Save Comment</button>
       </form>
       </fieldset>

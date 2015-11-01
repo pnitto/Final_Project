@@ -5,10 +5,6 @@ import BackboneMixin from '../mixins/backbone';
 
 const Chat = React.createClass({
 
-  propTypes: {
-    comments: React.PropTypes.object
-  },
-
   mixins: [BackboneMixin],
 
   getModels(){
@@ -20,15 +16,19 @@ const Chat = React.createClass({
     store.fetchComments();
   },
   handleDelete(e){
+    if(this.state.comment.get('creator') === this.get('currentUser').creator ){
     store.destroyComment(this.state.comment).then(()=>{
       this.history.replaceState(null, '/')
     })
+  }else{
+    alert("You don't have permission to delete this comment.")
+  }
   },
   render(){
     var comments = this.state.comments
     return (
       <div className="chat-div">
-      <h1>Chat Room</h1>
+      <h1 className="chat-room-heading">Chat Room</h1>
       <AddComment />
       <div className="comments-list-div">
       <ul className="chat-ul">
@@ -36,7 +36,8 @@ const Chat = React.createClass({
           return (<div className="comment-card-div"key={Math.round(Math.random() * 100000)}>
                   <li>Course Name: {x.courseName}</li>
                   <li>Course Rating: {x.rating}</li>
-                  <li>Course Comment: {x.comment}</li>
+                  <li>Course Comment: <span className="comment"><i>{x.comment}</i></span></li>
+                  <li><i onClick={this.handleDelete} className="fa fa-trash-o delete-comment"></i></li>
                 </div>)
         })}
       </ul>

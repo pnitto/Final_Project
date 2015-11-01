@@ -6,7 +6,7 @@
 
 //-Nav-//
 #application{
-  height: 700px;
+  height: 1000px;
   background-image:url("http://www.hdwallpaperscool.com/wp-content/uploads/2015/01/technology-golf-course-club-premium-high-definition-wallpaper-download-golf-course-images-free.jpg");
   background-repeat:no-repeat;
   background-size:cover;
@@ -60,21 +60,29 @@
   margin-left: 2%;
 }
 .fa-trash-o{
-  color:white;
+  color:black;
   padding-left: 5px;
 }
 .scorecard-fieldset{
   width: 60%;
   margin: auto;
+  background-color: white;
 }
 .li {
   display: inline-block;
 }
 .scorecard-header-l{
     text-align:center;
+    background-color: white;
+    width: 85%;
+    margin: auto;
+    margin-top: 5%;
 }
 .scorecard-ul{
   list-style-type: none;
+}
+.scorecard-name:hover{
+  text-decoration: underline;
 }
 //--Hole Detail Page--//
 
@@ -89,17 +97,56 @@
 }
 //--Chat Page--//
 .create-comment-fs{
-
+  margin: auto;
+  width: 75%;
+  margin-bottom: 5%;
+  background-color: white;
 }
 .chat-div {
-  border: 2px solid black;
+  padding-bottom: 12%;
 }
 .comments-list-div{
   background-color: white;
+  width: 85%;
+  margin: auto;
 }
 .comment-card-div{
-  border: 2px solid black;
+  margin-bottom: 5%;
 }
 .chat-ul {
   list-style-type: none;
+}
+.delete-comment{
+  color: black;
+}
+input.course-name{
+  width: 60%;
+}
+.course-rating{
+  width: 8%;
+}
+.comment-textarea{
+  width: 60%;
+  height: 100px;
+}
+.chat-room-heading{
+  text-align: center;
+}
+//--Edit Hole--//
+.par-type-select{
+  width: 25%;
+}
+.edit-hole-fieldset{
+  width: 80%;
+  margin: auto;
+  margin-bottom: 10%;
+  background-color: white;
+
+  @media(min-width: 30em){
+    margin-bottom: 20%;
+  }
+
+}
+.comment:before,.comment:after{
+  content:'"';
 }

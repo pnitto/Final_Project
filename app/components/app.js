@@ -2,6 +2,7 @@ import React from 'react';
 import {Link, IndexLink} from 'react-router';
 import store from '../store'
 import BackboneMixin from '../mixins/backbone';
+import $ from 'jquery';
 ///React burger menu
 //React components
 var App = React.createClass({
@@ -28,7 +29,12 @@ var App = React.createClass({
 
     return (
       <div>
-        <p className="username">{username}</p>
+        <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" className="button dropdown">{username}</button><br />
+      <ul id="drop1" data-dropdown-content className="f-dropdown" aria-hidden="true">
+        <li><a href="#">This is a link</a></li>
+        <li><a href="#">This is another</a></li>
+        <li><a href="#">Yet another</a></li>
+      </ul> 
         <nav className="nav">
          <ul className="nav-ul">
            <li className="nav-li"><IndexLink className="Links" to="/"><i className="fa fa-home fa-2x"></i></IndexLink></li>
