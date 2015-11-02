@@ -4,25 +4,22 @@ import store from '../store';
 import Scorecard from '../models/scorecard';
 import $ from 'jquery';
 import BackboneMixin from '../mixins/backbone';
-import Carousel from 'nuka-carousel';
+import {Carousel,CarouselItem} from 'react-bootstrap';
+import EditHole from '../components/edit-hole';
 
+//need to add cumulative score, fir, gir, total number of putts
 
 const Slider = React.createClass({
-  propTypes: {
-    slidesToShow : React.PropTypes.number,
-    cellSpacing: React.PropTypes.number,
-    slidesToScroll: React.PropTypes.number,
-    width: React.PropTypes.string
-  },
-  mixins: [History, Carousel.ControllerMixin],
-
   render(){
     return (
-      <Carousel className="Carousel" slidesToShow={1} cellSpacing={20} slidesToScroll={1} width="300px" />
-    )
-}
-})
+      <Carousel>
+        <CarouselItem>
 
+        </CarouselItem>
+      </Carousel>
+    )
+  }
+})
 const ScorecardDetail = React.createClass({
 
   mixins:[History, BackboneMixin],
@@ -32,21 +29,39 @@ const ScorecardDetail = React.createClass({
     console.log(scorecardId)
     return { scorecard: store.getScorecard(scorecardId) }
   },
+  handleClick(hole,e){
+    console.log(hole)
+  },
+
   render(){
     let scorecard = this.state.scorecard;
     let scorecardId = this.props.params.scorecardId;
     let holes = scorecard && scorecard.holes || [];
+
     return (
-      <Carousel className="Carousel">
+
+      <div className="hole-list">
+        <div className="scorecard-stats">
+          <h5>Score: </h5>
+          <h5>FIR(%): </h5>
+          <h5>GIR(%): </h5>
+          <h5># of Putts: </h5>
+        </div>
+        <Carousel interval={0} className="carousel">
+
           {holes.map((x)=>
-            <div key={Math.round(Math.random() * 10000)}>
-                <Link to={`/scorecards/${scorecardId}/hole/${x.holenumber}`} state={{hole:x}}>Hole: {Number(x.holenumber)}</Link>
-            </div>
+            <CarouselItem>
+              <div key={Math.round(Math.random() * 10000)} className="hole-div">
+                <Link to={`/scorecards/${scorecardId}/hole/${x.holenumber - 1}`} state={{hole:x}}>Hole: {Number(x.holenumber)}</Link>
+              </div>
+              </CarouselItem>
           )}
-        </Carousel>
+
+          </Carousel>
+        </div>
     )
     }
-})
+});
 
 export default ScorecardDetail;
 /*

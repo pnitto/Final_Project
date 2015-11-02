@@ -3,6 +3,9 @@ import store from '../store';
 import AddComment from '../components/create-comment';
 import BackboneMixin from '../mixins/backbone';
 
+//need to access email address of user who created it
+//need to only edit and delete comments that, that user made
+
 const Chat = React.createClass({
 
   mixins: [BackboneMixin],
@@ -22,7 +25,7 @@ const Chat = React.createClass({
     })
   }else{
     alert("You don't have permission to delete this comment.")
-  }
+    }
   },
   render(){
     var comments = this.state.comments
@@ -33,7 +36,7 @@ const Chat = React.createClass({
       <div className="comments-list-div">
       <ul className="chat-ul">
         {comments.map((x)=>{
-          return (<div className="comment-card-div"key={Math.round(Math.random() * 100000)}>
+          return (<div className="comment-card-div"key={ Math.round(Math.random() * 100000) }>
                   <li>Course Name: {x.courseName}</li>
                   <li>Course Rating: {x.rating}</li>
                   <li>Course Comment: <span className="comment"><i>{x.comment}</i></span></li>

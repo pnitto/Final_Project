@@ -1,21 +1,41 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import {Link, History} from 'react-router';
 import BackboneMixin from '../mixins/backbone';
-import Carousel from 'nuka-carousel';
+import {Carousel, CarouselItem} from 'react-bootstrap';
 import HoleList from '../components/scorecard-detail';
 import scorecard from '../models/scorecard';
 
 
+const carouselInstance = React.createClass({
 
-const Slider = React.createClass({
+      render(){
+        return (
+        <Carousel>
+          <CarouselItem>
+            <img src="app/images/golf.jpg" />
+            <div className="carousel-caption">
+              <h3><Link to="/">Home</Link></h3>
+            </div>
+          </CarouselItem>
+          <CarouselItem>
+            <div className="carousel-caption">
+              <h3>Second slide label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </CarouselItem>
+          <CarouselItem>
+            <div className="carousel-caption">
+              <h3>Third slide label</h3>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+          </CarouselItem>
+        </Carousel>
+      )
+  }
+});
 
-  render(){
-    return (
-      <Carousel className="Carousel" slidesToShow={1} cellSpacing={20} slidesToScroll={1} width="300px">
 
-      </Carousel>
-    )
-}
-})
-export default Slider;
+
+export default carouselInstance;

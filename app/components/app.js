@@ -2,9 +2,9 @@ import React from 'react';
 import {Link, IndexLink} from 'react-router';
 import store from '../store'
 import BackboneMixin from '../mixins/backbone';
-import $ from 'jquery';
-///React burger menu
-//React components
+
+//Drop down username button is not working
+
 var App = React.createClass({
   propTypes: {
     children: React.PropTypes.node
@@ -29,18 +29,21 @@ var App = React.createClass({
 
     return (
       <div>
-        <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" className="button dropdown">{username}</button><br />
-      <ul id="drop1" data-dropdown-content className="f-dropdown" aria-hidden="true">
-        <li><a href="#">This is a link</a></li>
-        <li><a href="#">This is another</a></li>
-        <li><a href="#">Yet another</a></li>
-      </ul> 
+        <section  className="top-bar-section">
+          <ul className="left">
+            <li className="has-dropdown">
+            <a href="#">{username}</a>
+            <ul className="dropdown">
+                <li><Link className="Links" to="/login">Login</Link></li>
+                <li><a className="Links" href="#" onClick={this.handleLogout}>Logout</a></li>
+                <li><Link className="Links" to="/signup">Sign Up</Link></li>
+              </ul>
+        </li>
+      </ul>
+    </section>
         <nav className="nav">
          <ul className="nav-ul">
            <li className="nav-li"><IndexLink className="Links" to="/"><i className="fa fa-home fa-2x"></i></IndexLink></li>
-             <li className="nav-li"><Link className="Links" to="/signup">Sign Up</Link></li>
-             <li className="nav-li"><Link className="Links" to="/login">Login</Link></li>
-             <li className="nav-li"><a className="Links" href="#" onClick={this.handleLogout}>Logout</a></li>
              <li className="nav-li"><Link className="Links" to="/create-scorecard">Add Scorecard</Link></li>
              <li className="nav-li"><Link className="Links" to="/chat"><i className="fa fa-comment fa-2x"></i></Link></li>
              <li className="nav-li"><Link className="Links" to="/slick-carousel">Slider</Link></li>

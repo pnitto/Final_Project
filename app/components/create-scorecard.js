@@ -1,8 +1,10 @@
 import React from 'react';
 import store from '../store';
 import ScorecardList from '../components/scorecard-list';
-import { History } from 'react-router';
+import { History,Link } from 'react-router';
 import BackboneMixin from '../mixins/backbone';
+
+//add scorecard to the top of the list
 
 const AddScorecard = React.createClass({
 
@@ -13,7 +15,7 @@ const AddScorecard = React.createClass({
     store.saveScorecard({
       name: this.refs.name.value,
     }, {wait:true});
-
+    
     this.refs.name.value = '';
 
   },

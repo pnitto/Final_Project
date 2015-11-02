@@ -85,6 +85,6 @@ const EditHole = React.createClass({
     </fieldset>
     )
   }
-})
+});
 
 export default EditHole;
