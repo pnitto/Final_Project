@@ -2,6 +2,7 @@ import React from 'react';
 import store from '../store';
 import AddComment from '../components/create-comment';
 import BackboneMixin from '../mixins/backbone';
+import {Glyphicon} from 'react-bootstrap';
 
 //need to access email address of user who created it
 //need to only edit and delete comments that, that user made
@@ -36,11 +37,12 @@ const Chat = React.createClass({
       <div className="comments-list-div">
       <ul className="chat-ul">
         {comments.map((x)=>{
-          return (<div className="comment-card-div"key={ Math.round(Math.random() * 100000) }>
+          return (<div className="comment-card-div"key={Math.round(Math.random() * 100000)}>
+                  <li>CreatedBy: {x.creator.username}</li>
                   <li>Course Name: {x.courseName}</li>
                   <li>Course Rating: {x.rating}</li>
                   <li>Course Comment: <span className="comment"><i>{x.comment}</i></span></li>
-                  <li><i onClick={this.handleDelete} className="fa fa-trash-o delete-comment"></i></li>
+                  <li><Glyphicon onClick={this.handleDelete} glyph="remove" /></li>
                 </div>)
         })}
       </ul>

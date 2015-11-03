@@ -30,7 +30,7 @@ const Store = _.extend({}, Backbone.Events,{
     let scorecard = scorecards.get(id);
     console.log(scorecard);
     if(scorecard){
-      console.log('if')
+      console.log('Get scorecard by id')
       return scorecard.toJSON();
     }else{
       console.log('else')
@@ -84,7 +84,12 @@ const Store = _.extend({}, Backbone.Events,{
       return user.save().then(()=>{
         return session.authenticate({sessionToken: user.get('sessionToken')})
       });
+  },
+  saveUser(user,options){
+    options = _.extend({},options,{merge:true});
+    return users.create(user,options)
   }
+
 });
 
 Store.initialize();

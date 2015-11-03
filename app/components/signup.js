@@ -33,6 +33,7 @@ const SignUp = React.createClass({
           this.setState({ error: xhr.responseJSON.error });
         });
       },
+      
   render(){
     return (
       <div className="signup-div">

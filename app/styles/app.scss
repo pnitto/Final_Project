@@ -73,7 +73,6 @@
 .scorecard-fieldset{
   width: 60%;
   margin: auto;
-  background-color: white;
 }
 .li {
   display: inline-block;
@@ -97,11 +96,9 @@
 }
 .scorecard-stats{
   border: 1px solid black;
-  width: 30%;
+  width: 40%;
   background-color: white;
-  margin-top: -14%;
-  position: absolute;
-  right: 3%;
+  margin: auto;
   margin-bottom: 2%;
 }
 .hole-link {
@@ -186,4 +183,11 @@ text-align: center;
 
 .hole-div{
 text-align: center;
+}
+//--Edit Hole Page --//
+.input-group .form-control{
+  width: 18%;
+}
+.checkbox input[type=checkbox] {
+  margin-left: 25%;
 }

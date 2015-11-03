@@ -3,6 +3,7 @@ import store from '../store';
 import ScorecardList from '../components/scorecard-list';
 import { History,Link } from 'react-router';
 import BackboneMixin from '../mixins/backbone';
+import {Input,Button} from 'react-bootstrap';
 
 //add scorecard to the top of the list
 
@@ -13,10 +14,10 @@ const AddScorecard = React.createClass({
   handleSubmit(e){
     e.preventDefault();
     store.saveScorecard({
-      name: this.refs.name.value,
+      name: this.refs.name.getValue(),
     }, {wait:true});
 
-    this.refs.name.value = '';
+      this.refs.name.getValue();
 
   },
   render(){
@@ -24,8 +25,8 @@ const AddScorecard = React.createClass({
       <div>
         <fieldset className="scorecard-fieldset">
           <form onSubmit={this.handleSubmit}>
-            <input type="text" placeholder="Add Scorecard" ref="name"/>
-            <button type="submit">Add Scorecard</button>
+            <Input type="text" placeholder="Add Scorecard" ref="name"/>
+            <Button className="btn btn-success" type="submit">Add Scorecard</Button>
           </form>
         </fieldset>
         <ScorecardList />

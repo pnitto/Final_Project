@@ -19,11 +19,17 @@ const Scorecard = Backbone.Model.extend({
         playerscore: 0,
         fir: false,
         gir: false,
-        putts: 0
+        putts: 0,
       };
     }
-  )
-  }
+  ),
+    }
+  },
+  scoreTotal(){
+  var total = this.get('holes').reduce((total,x)=>{
+      return total + x.playerscore
+    },0)
+    console.log(total)
   },
   parse(response){
     response.creator = new User(_.omit(response.creator,'__type','className'),{parse:true});
@@ -40,6 +46,7 @@ const Scorecard = Backbone.Model.extend({
       })
     }else{
       return _.extend({},this.attributes,{
+        scoreTotal: this.scoreTotal(),
         creator: this.get('creator').toJSON
       });
     }
@@ -50,13 +57,15 @@ const Scorecard = Backbone.Model.extend({
       this.set('creator', new User(currentUser));
       Backbone.Model.prototype.save.apply(this, arguments);
     }else{
-      return new Promise((_, reject)=> reject("Invalide session"));
+      return new Promise((_, reject)=> reject("Invalid session"));
     }
   }
 });
 export default Scorecard;
 
 /*
+under else of toJSON
+  metadata: this.getMetadata(),
 scorecard.updateHole(3,{score:2})
 updateHole(x, data){
   var newHoles = _.clone(this.get('holes'))

@@ -19,6 +19,7 @@ function requireAuth(nextState,replaceState){
     replaceState({nextPathname: nextState.location.pathname},'/login')
   }
 }
+
 function requireNotAuth(nextState, replaceState){
   if(store.getSession().isAuthenticated) {
     replaceState({},'/')
@@ -32,8 +33,9 @@ ReactDOM.render((
       <Route path="login" component={Login} onEnter={requireNotAuth}/>
       <Route path="signup" component={SignUp} onEnter={requireNotAuth}/>
       <Route path="create-scorecard" component={CreateScorecard} onEnter={requireAuth}/>
-      <Route path="scorecards/:scorecardId" component={ScorecardDetail} onEnter={requireAuth}/>
-      <Route path="scorecards/:scorecardId/hole/:holeIndex" component={EditHole} onEnter={requireAuth}/>
+      <Route path="scorecards/:scorecardId" component={ScorecardDetail} onEnter={requireAuth}>
+        <Route path="hole/:holeIndex" component={EditHole} onEnter={requireAuth}/>
+      </Route>
       <Route path="chat" component={Chat} />
       <Route path="slick-carousel" component={Slider} />
     </Route>

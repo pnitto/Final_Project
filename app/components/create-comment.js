@@ -1,6 +1,7 @@
 import React from 'react';
 import store from '../store';
 import BackboneMixin from '../mixins/backbone';
+import {Input,Button} from 'react-bootstrap';
 
 
 const AddComment = React.createClass({
@@ -10,9 +11,9 @@ const AddComment = React.createClass({
   handleSubmit(e){
     e.preventDefault();
     store.saveComment({
-      comment: this.refs.comment.value,
-      courseName: this.refs.course.value,
-      rating: Number(this.refs.rating.value),
+      comment: this.refs.comment.getValue(),
+      courseName: this.refs.course.getValue(),
+      rating: Number(this.refs.rating.getValue()),
     },{wait: true})
 
     this.refs.comment.value = '';
@@ -25,19 +26,19 @@ const AddComment = React.createClass({
       <fieldset className="create-comment-fs">
       <form onSubmit={this.handleSubmit}>
         <label>Provide Course Name</label>
-        <input type="text" ref="course" className="course-name"/>
+        <Input type="text" ref="course" className="course-name"/>
         <label>Rate A Course</label>
-        <select ref="rating" className="course-rating">
+        <Input type="select" ref="rating" className="course-rating">
           <option>0</option>
           <option>1</option>
           <option>2</option>
           <option>3</option>
           <option>4</option>
           <option>5</option>
-        </select>
+        </Input>
         <label>Add Comment</label>
-        <textarea type="text" ref="comment" className="comment-textarea"/>
-        <button type="submit">Save Comment</button>
+        <Input type="textarea" ref="comment" className="comment-textarea"/>
+        <Button className="btn btn-success" type="submit">Save Comment</Button>
       </form>
       </fieldset>
     )

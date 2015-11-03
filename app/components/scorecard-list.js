@@ -3,6 +3,7 @@ import { Link, History} from 'react-router';
 import store from '../store';
 import BackboneMixin from '../mixins/backbone';
 import moment from 'moment';
+import {Glyphicon, Button} from 'react-bootstrap';
 
 
 
@@ -34,7 +35,7 @@ const ScorecardList = React.createClass({
                 <Link state={{scorecard:x}} to={`/scorecards/${x.objectId}`}>
                 <span className="scorecard-name">{x.name}</span>
               </Link><h5>{moment(x.createdAt).format('MMMM Do YYYY, h:mm a')}</h5>
-                <a><i onClick={this.handleDelete.bind(this,x)} className="fa fa-trash-o fa-2x"></i></a></li>)
+            <Button bsSize="large"><Glyphicon glyph="remove" onClick={this.handleDelete.bind(this,x)} /></Button></li>)
             })}
           </ul>
       </div>
