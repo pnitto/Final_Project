@@ -9,17 +9,6 @@ import EditHole from '../components/edit-hole';
 
 //need to add cumulative score, fir, gir, total number of putts
 
-const Slider = React.createClass({
-  render(){
-    return (
-      <Carousel>
-        <CarouselItem>
-
-        </CarouselItem>
-      </Carousel>
-    )
-  }
-})
 const ScorecardDetail = React.createClass({
 
   mixins:[History, BackboneMixin],
@@ -48,15 +37,13 @@ const ScorecardDetail = React.createClass({
           <h5># of Putts: </h5>
         </div>
         <Carousel interval={0} className="carousel">
-
           {holes.map((x)=>
             <CarouselItem>
               <div key={Math.round(Math.random() * 10000)} className="hole-div">
-                <Link to={`/scorecards/${scorecardId}/hole/${x.holenumber - 1}`} state={{hole:x}}>Hole: {Number(x.holenumber)}</Link>
+                <Link className="hole-link" to={`/scorecards/${scorecardId}/hole/${x.holenumber - 1}`} state={{hole:x}}>Hole: {Number(x.holenumber)}</Link>
               </div>
               </CarouselItem>
           )}
-
           </Carousel>
         </div>
     )

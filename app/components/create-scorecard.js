@@ -15,7 +15,7 @@ const AddScorecard = React.createClass({
     store.saveScorecard({
       name: this.refs.name.value,
     }, {wait:true});
-    
+
     this.refs.name.value = '';
 
   },

@@ -2,6 +2,7 @@ import React from 'react';
 import {Link, IndexLink} from 'react-router';
 import store from '../store'
 import BackboneMixin from '../mixins/backbone';
+import {DropdownButton, MenuItem} from 'react-bootstrap';
 
 //Drop down username button is not working
 
@@ -29,18 +30,12 @@ var App = React.createClass({
 
     return (
       <div>
-        <section  className="top-bar-section">
-          <ul className="left">
-            <li className="has-dropdown">
-            <a href="#">{username}</a>
-            <ul className="dropdown">
-                <li><Link className="Links" to="/login">Login</Link></li>
-                <li><a className="Links" href="#" onClick={this.handleLogout}>Logout</a></li>
-                <li><Link className="Links" to="/signup">Sign Up</Link></li>
-              </ul>
-        </li>
-      </ul>
-    </section>
+        <DropdownButton bsStyle="primary" title={username} id="bg-nested-dropdown">
+             <MenuItem eventKey="1"><Link className="Links" to="/login">Login</Link></MenuItem>
+             <MenuItem eventKey="2"><a className="Links" href="#" onClick={this.handleLogout}>Logout</a></MenuItem>
+             <MenuItem eventKey="3"><Link className="Links" to="/signup">Sign Up</Link></MenuItem>
+         </DropdownButton>
+
         <nav className="nav">
          <ul className="nav-ul">
            <li className="nav-li"><IndexLink className="Links" to="/"><i className="fa fa-home fa-2x"></i></IndexLink></li>
