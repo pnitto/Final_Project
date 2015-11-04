@@ -14,7 +14,7 @@ const AddComment = React.createClass({
       comment: this.refs.comment.getValue(),
       courseName: this.refs.course.getValue(),
       rating: Number(this.refs.rating.getValue()),
-    },{wait: true})
+    })
 
     this.refs.comment.value = '';
     this.refs.course.value = '';

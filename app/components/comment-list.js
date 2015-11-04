@@ -21,12 +21,12 @@ const Chat = React.createClass({
   componentWillMount(){
     store.fetchComments();
   },
-
-  handleDelete(e){
-    if(this.get('currentUser') === this.get('creator')){
-    store.destroyComment(this.state.comment).then(()=>{
-      this.history.replaceState(null, '/')
-    })
+//look back at objectid
+  handleDelete(comment,e){
+    console.log("current User" , store.getSession().currentUser)
+    console.log('creator' , comment.creator)
+    if(store.getSession().currentUser.objectId === comment.creator.objectId){
+    store.destroyComment(comment)
   }else{
     alert("You don't have permission to delete this comment.")
     }
@@ -42,12 +42,12 @@ const Chat = React.createClass({
       <div className="comments-list-div">
       <ul className="chat-ul">
         {comments.map((x)=>{
-          return (<div className="comment-card-div"key={Date.now()}>
+          return (<div className="comment-card-div"key={x.objectId}>
                   <li>CreatedBy: {x.creator.username}</li>
                   <li>Course Name:<Link to={`/chat/${x.objectId}`} state={{comment:x}}>{x.courseName}</Link></li>
                   <li>Course Rating: {x.rating}</li>
                   <li>Course Comment: <span className="comment"><i>{x.comment}</i></span></li>
-                  <li><Glyphicon onClick={this.handleDelete} glyph="remove" /></li>
+                  <li><Glyphicon onClick={this.handleDelete.bind(this,x)} glyph="remove" /></li>
                 </div>)
         })}
       </ul>

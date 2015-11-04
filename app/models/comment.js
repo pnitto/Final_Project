@@ -6,20 +6,19 @@ import store from '../store';
 
 const Comment = Backbone.Model.extend({
   idAttribute: "objectId",
+  urlRoot: "https://api.parse.com/1/classes/Comments",
+  
+  url: function(){
+    return Backbone.Model.prototype.url.apply(this, arguments) + "?include=creator";
+  },
 
   defaults(){
     return {
       creator: {toJSON: function(){}},
-      scorecard: {toJSON: function(){}},
       courseName: "",
       comment: "",
       rating: 0,
     }
-  },
-  parse(response){
-    response.creator = new User(_.omit(response.creator,'__type','className'), {parse:true});
-    response.scorecard = new Scorecard(_.omit(response.scorecard,'__type','className'), {parse:true})
-    return response;
   },
 
   toJSON(options){
@@ -28,8 +27,8 @@ const Comment = Backbone.Model.extend({
         creator: {
           "__type":"Pointer",
           "className":"_User",
-          "objectId": this.get('creator').id
-        }
+          "objectId": this.get('creator').objectId
+        },
       })
     }else{
       return _.clone(this.attributes)
