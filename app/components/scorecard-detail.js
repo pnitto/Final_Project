@@ -36,7 +36,7 @@ const ScorecardDetail = React.createClass({
         </thead>
         <tbody>
           <tr>
-            <td>Score: </td>
+            <td>Score:{} </td>
             <td></td>
           </tr>
           <tr>

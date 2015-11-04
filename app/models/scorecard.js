@@ -29,7 +29,26 @@ const Scorecard = Backbone.Model.extend({
   var total = this.get('holes').reduce((total,x)=>{
       return total + x.playerscore
     },0)
-    console.log(total)
+    //console.log(total)
+  },
+  firAverage(){
+  var average = this.get('holes').reduce((total,x)=>{
+    var result = total + x.fir / this.get('holes').length * 100
+    return result;
+  },0);
+    console.log("Average Fir: " + average );
+  },
+  girAverage(){
+    var average = this.get('holes').reduce((total,x)=>{
+      return total + x.gir / this.get('holes').length * 100
+    },0);
+    console.log("Average Gir: " + average);
+  },
+  puttTotal(){
+    var total = this.get('holes').reduce((total,x)=>{
+      return total + x.putts
+    },0);
+    //console.log(total);
   },
   parse(response){
     response.creator = new User(_.omit(response.creator,'__type','className'),{parse:true});
@@ -46,6 +65,9 @@ const Scorecard = Backbone.Model.extend({
       })
     }else{
       return _.extend({},this.attributes,{
+        girAverage: this.girAverage(),
+        firAverage: this.firAverage(),
+        puttTotal: this.puttTotal(),
         scoreTotal: this.scoreTotal(),
         creator: this.get('creator').toJSON
       });
