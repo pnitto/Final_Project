@@ -15,7 +15,13 @@
   background-size:cover;
   background-position:center;
   width:100%;
+
+  @media(min-width: 38.75em){
+    background-image: none;
+    background-color: #EEEEE3;
+  }
 }
+
 .nav{
   height: 75px;
   background-color:#262626;
@@ -190,4 +196,12 @@ text-align: center;
 }
 .checkbox input[type=checkbox] {
   margin-left: 25%;
+}
+//--Scorecard Detail--//
+.scorecard-title{
+  text-align: center;
+}
+//--Edit Comment--//
+.edit-comment-fieldset{
+  width: 60%;
 }

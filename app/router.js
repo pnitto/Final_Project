@@ -10,6 +10,7 @@ import CreateScorecard from './components/create-scorecard';
 import EditHole from './components/edit-hole';
 import ScorecardDetail from './components/scorecard-detail';
 import Chat from './components/comment-list';
+import EditComment from './components/edit-comment';
 import Slider from './components/slider';
 import store from './store';
 
@@ -28,7 +29,7 @@ function requireNotAuth(nextState, replaceState){
 
 ReactDOM.render((
   <Router>
-    <Route path="/" component={App} >
+    <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="login" component={Login} onEnter={requireNotAuth}/>
       <Route path="signup" component={SignUp} onEnter={requireNotAuth}/>
@@ -37,6 +38,7 @@ ReactDOM.render((
         <Route path="hole/:holeIndex" component={EditHole} onEnter={requireAuth}/>
       </Route>
       <Route path="chat" component={Chat} />
+      <Route path="chat/:id" component={EditComment} />
       <Route path="slick-carousel" component={Slider} />
     </Route>
   </Router>

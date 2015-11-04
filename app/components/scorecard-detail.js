@@ -1,7 +1,7 @@
 import React from 'react';
 import {History, Link} from 'react-router';
 import store from '../store';
-import Scorecard from '../models/scorecard';
+import {Scorecard} from '../models/scorecard';
 import $ from 'jquery';
 import BackboneMixin from '../mixins/backbone';
 import {Carousel,CarouselItem,Button, Input,Table} from 'react-bootstrap';
@@ -22,11 +22,13 @@ const ScorecardDetail = React.createClass({
   render(){
 
     let scorecard = this.state.scorecard;
+    console.log(scorecard)
     let scorecardId = this.props.params.scorecardId;
     let holes = scorecard && scorecard.holes || [];
 
     return (
       <div className="hole-list">
+        <h1 className="scorecard-title">{scorecard.name}</h1>
         <Table className="scorecard-stats" bordered>
           <thead>
             <tr>
@@ -36,20 +38,20 @@ const ScorecardDetail = React.createClass({
         </thead>
         <tbody>
           <tr>
-            <td>Score:{} </td>
-            <td></td>
+            <td>Score:</td>
+            <td>{scorecard.scoreTotal}</td>
           </tr>
           <tr>
             <td>FIR Average(%): </td>
-            <td></td>
+            <td>{Math.round(scorecard.firAverage)}</td>
           </tr>
           <tr>
             <td>GIR Average(%): </td>
-            <td></td>
+            <td>{Math.round(scorecard.girAverage)}</td>
           </tr>
           <tr>
             <td># of Putts</td>
-            <td></td>
+            <td>{scorecard.puttTotal}</td>
           </tr>
         </tbody>
       </Table>
