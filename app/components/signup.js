@@ -2,6 +2,7 @@ import React from 'react';
 import {History} from 'react-router';
 import store from '../store';
 import User from '../models/user';
+import {Input,Button} from 'react-bootstrap';
 
 
 const SignUp = React.createClass({
@@ -18,9 +19,9 @@ const SignUp = React.createClass({
   handleSubmit(e){
     e.preventDefault();
 
-    let email = this.refs.email.value;
+    let email = this.refs.email.getValue();
     let username = email;
-    let password = this.refs.password.value;
+    let password = this.refs.password.getvalue();
 
     store.createUser({username, password, email}).then(() => {
           let { location } = this.props;
@@ -33,15 +34,15 @@ const SignUp = React.createClass({
           this.setState({ error: xhr.responseJSON.error });
         });
       },
-      
+
   render(){
     return (
       <div className="signup-div">
-        <h1>Sign Up</h1>
-          <form className="" onSubmit={this.handleSubmit}>
-            <input type="email" placeholder="Email" ref="email"/>
-            <input type="password" placeholder="Password" ref="password" />
-            <input type="submit" value= "Sign Up" />
+        <h3 className="sign-up-heading">Sign Up</h3>
+          <form className="sign-up-form" onSubmit={this.handleSubmit}>
+            <Input className="sign-up-email"type="email" placeholder="Email" ref="email"/>
+            <Input className="sign-up-pword"type="password" placeholder="Password" ref="password" />
+            <Button bsStyle="success" bsSize="large" className="sign-up-btn" type="submit">Sign up</Button>
             {this.state.error && (
               <p>{this.state.error}</p>
             )}

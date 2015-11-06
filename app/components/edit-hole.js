@@ -5,6 +5,8 @@ import update from 'react-addons-update';
 import BackboneMixin from '../mixins/backbone';
 import {Input, Button} from 'react-bootstrap';
 
+//need to refresh page after hole information is put in
+
 const EditHole = React.createClass({
 
   mixins: [History,BackboneMixin],
@@ -41,11 +43,9 @@ const EditHole = React.createClass({
     this.setState({
       scorecard: newScorecard
     });
-
   },
   handleSave(e){
-    e.preventDefault();
-    store.saveScorecard(this.state.scorecard);
+    store.saveScorecard(this.state.scorecard)
     this.history.goBack();
   },
   render(){
@@ -53,7 +53,6 @@ const EditHole = React.createClass({
     let holes = scorecard && scorecard.holes || [];
     let hole = holes && holes[this.props.params.holeIndex] || {};
     console.log(hole);
-    //want the default value to be whatever is currently stored in that attribute or the default value if it is a new hole
     return (
       <fieldset className="edit-hole-fieldset">
         <h3>Hole {hole.holenumber}</h3>
@@ -72,16 +71,12 @@ const EditHole = React.createClass({
           <Input className="input-putts" type="number" addonBefore="#" ref="putts" onChange={this.handleChange} value={hole.putts}/>
 
         <label><h5>Fairway in Regulation</h5></label>
-          <div className="switch">
           <Input id="fir" type="checkbox" ref="fir" onChange={this.handleChange} checked={hole.fir} />
-          <label htmlFor="fir"></label>
-          </div>
+
 
           <label><h5>Green in Regulation</h5></label>
-            <div className="switch">
-            <Input id="gir" type="checkbox" ref="gir" onChange={this.handleChange} checked={hole.gir} />
-            <label htmlFor="gir"></label>
-            </div>
+            <Input  id="gir" type="checkbox" ref="gir" onChange={this.handleChange} checked={hole.gir} />
+
 
           <Button className="btn btn-success" type="submit">Save Hole</Button>
 

@@ -7,8 +7,8 @@ import {Link} from 'react-router';
 
 const Scorecard = Backbone.Model.extend({
   idAttribute: "objectId",
-  urlRoot:"https://api.parse.com/1/classes/Scorecards",
-
+  urlRoot: "https://api.parse.com/1/classes/Scorecards",
+  
   defaults(){
     return {
       creator: { toJSON: function() {} },
@@ -25,6 +25,7 @@ const Scorecard = Backbone.Model.extend({
   ),
     }
   },
+
   scoreTotal(){
   var total = this.get('holes').reduce((total,x)=>{
       return total + x.playerscore

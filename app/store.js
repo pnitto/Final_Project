@@ -8,10 +8,12 @@ import ScorecardList from './models/scorecard-list';
 import CommentList from './models/comment-list';
 import Comment from './models/comment';
 import User from './models/user';
+import SearchScorecards from './models/search-scorecards';
 
 let session = new Session();
 let scorecards = new ScorecardList();
 let comments = new CommentList();
+let searchScorecards = new SearchScorecards();
 
 const Store = _.extend({}, Backbone.Events,{
 
@@ -19,7 +21,20 @@ const Store = _.extend({}, Backbone.Events,{
     this.listenTo(scorecards,'add change remove', this.trigger.bind(this,'change'));
     this.listenTo(session, 'change', this.trigger.bind(this,'change'));
     this.listenTo(comments,'add change remove', this.trigger.bind(this,'change'));
+    this.listenTo(searchScorecards, 'add change remove', this.trigger.bind(this,'change'));
   },
+
+  getSearch(){
+    return searchScorecards.toJSON();
+  },
+  getSearchScorecards(model,search){
+    return( new scorecards(model, {search:search}))
+  },
+  searchScorecards(search){
+    scorecards.setSearch(search);
+    scorecards.fetch()
+  },
+
   getScorecards(){
     return scorecards.toJSON();
   },

@@ -1,6 +1,7 @@
 import React from 'react';
 import { History } from 'react-router';
 import store from '../store';
+import {Input, Button} from 'react-bootstrap';
 
 const Login = React.createClass({
   propTypes: {
@@ -15,8 +16,8 @@ const Login = React.createClass({
   },
   handleSubmit(e){
     e.preventDefault();
-    let username = this.refs.email.value;
-    let password = this.refs.password.value;
+    let username = this.refs.email.getValue();
+    let password = this.refs.password.getValue();
 
     let session = store.getSession();
 
@@ -36,11 +37,11 @@ const Login = React.createClass({
   render() {
     return (
       <div className="login-div">
-      <h1>Login</h1>
-      <form onSubmit={this.handleSubmit}>
-        <input type="email" placeholder="Provide Email Address" ref="email"/>
-        <input type="password" placeholder="Provide Password" ref="password"/>
-        <input type="submit" value="Login" />
+      <h3 className="login-heading">Login</h3>
+      <form className="login-form" onSubmit={this.handleSubmit}>
+        <Input className="login-email" type="email" placeholder="Provide Email Address" ref="email"/>
+        <Input className="login-password" type="password" placeholder="Provide Password" ref="password"/>
+        <Button bsStyle="success" bsSize="large" type="submit">Log In</Button>
         {
           this.state.error && (
             <p>Bad Login Information</p>

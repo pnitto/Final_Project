@@ -6,19 +6,19 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~bootstrap/dist/css/bootstrap-theme.css';
 
+body{
+  background-image:url("http://www.hdwallpaperscool.com/wp-content/uploads/2015/01/technology-golf-course-club-premium-high-definition-wallpaper-download-golf-course-images-free.jpg");
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-position:right;
+  height: 900px;
+  width:90%;
+}
+
 
 //-Nav-//
 #application{
-  height: 1000px;
-  background-image:url("http://www.hdwallpaperscool.com/wp-content/uploads/2015/01/technology-golf-course-club-premium-high-definition-wallpaper-download-golf-course-images-free.jpg");
-  background-repeat:no-repeat;
-  background-size:cover;
-  background-position:center;
-  width:100%;
-
   @media(min-width: 38.75em){
-    background-image: none;
-    background-color: #EEEEE3;
   }
 }
 
@@ -53,12 +53,46 @@
   text-align: center;
 }
 //--Sign Up Page--//
-.signup-div {
+.sign-up-heading{
+  text-align: center;
+}
+.signup-div{
 
+}
+.sign-up-form {
+  width: 50%;
+  margin: auto;
+}
+.sign-up-email:hover{
+  border-radius: 10px;
+  border-color:green;
+  border-width:2px;
+}
+.sign-up-pword:hover{
+  border-radius: 10px;
+  border-color:green;
+  border-width:2px;
 }
 //--Login Page--//
 .login-div {
 
+}
+.login-heading{
+  text-align: center;
+}
+.login-form{
+  width: 50%;
+  margin: auto;
+}
+.login-email:hover{
+  border-color:green;
+  border-radius: 10px;
+  border-width: 2px;
+}
+.login-password:hover{
+  border-color:green;
+  border-radius:10px;
+  border-width: 2px;
 }
 //--Home Page--//
 .begin-round-btn{
@@ -69,8 +103,12 @@
 }
 
 //--Scorecard Page--//
-.delete-scorecard-btn {
-  margin-left: 2%;
+.delete-scorecard{
+
+}
+.search-scorecards{
+  width: 50%;
+  margin: auto;
 }
 .fa-trash-o{
   color:black;
@@ -85,7 +123,6 @@
 }
 .scorecard-header-l{
     text-align:center;
-    background-color: white;
     width: 85%;
     margin: auto;
     margin-top: 5%;
@@ -125,11 +162,10 @@
   top: -62%;
 }
 //--Chat Page--//
-.create-comment-fs{
-  margin: auto;
+
+.chat-form{
+  margin:auto;
   width: 75%;
-  margin-bottom: 5%;
-  background-color: white;
 }
 .chat-div {
   padding-bottom: 12%;
@@ -169,7 +205,6 @@ input.course-name{
   width: 80%;
   margin: auto;
   margin-bottom: 10%;
-  background-color: white;
 
   @media(min-width: 30em){
     margin-bottom: 20%;
@@ -186,16 +221,18 @@ text-align: center;
 .hole-list{
   padding-top: 5%;
 }
-
 .hole-div{
 text-align: center;
 }
+
+
 //--Edit Hole Page --//
 .input-group .form-control{
   width: 18%;
 }
 .checkbox input[type=checkbox] {
   margin-left: 25%;
+  margin-top:-7%;
 }
 //--Scorecard Detail--//
 .scorecard-title{

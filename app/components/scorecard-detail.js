@@ -7,7 +7,7 @@ import BackboneMixin from '../mixins/backbone';
 import {Carousel,CarouselItem,Button, Input,Table} from 'react-bootstrap';
 import EditHole from '../components/edit-hole';
 
-//need to add cumulative score, fir, gir, total number of putts
+//need to re render the screen after hole information is put in
 
 const ScorecardDetail = React.createClass({
 

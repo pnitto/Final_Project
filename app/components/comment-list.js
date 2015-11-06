@@ -5,8 +5,6 @@ import BackboneMixin from '../mixins/backbone';
 import {Glyphicon} from 'react-bootstrap';
 import {Link } from 'react-router';
 
-//need to access email address of user who created it
-//need to only edit and delete comments that, that user made
 
 const Chat = React.createClass({
 
@@ -42,7 +40,7 @@ const Chat = React.createClass({
       <div className="comments-list-div">
       <ul className="chat-ul">
         {comments.map((x)=>{
-          return (<div className="comment-card-div"key={x.objectId}>
+          return (<div className="comment-card-div" key={x.objectId}>
                   <li>CreatedBy: {x.creator.username}</li>
                   <li>Course Name:<Link to={`/chat/${x.objectId}`} state={{comment:x}}>{x.courseName}</Link></li>
                   <li>Course Rating: {x.rating}</li>

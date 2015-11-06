@@ -12,6 +12,7 @@ import ScorecardDetail from './components/scorecard-detail';
 import Chat from './components/comment-list';
 import EditComment from './components/edit-comment';
 import Slider from './components/slider';
+import Search from './components/search';
 import store from './store';
 
 
@@ -33,12 +34,14 @@ ReactDOM.render((
       <IndexRoute component={Home} />
       <Route path="login" component={Login} onEnter={requireNotAuth}/>
       <Route path="signup" component={SignUp} onEnter={requireNotAuth}/>
-      <Route path="create-scorecard" component={CreateScorecard} onEnter={requireAuth}/>
+      <Route path="create-scorecard" component={CreateScorecard} onEnter={requireAuth} />
+
       <Route path="scorecards/:scorecardId" component={ScorecardDetail} onEnter={requireAuth}>
         <Route path="hole/:holeIndex" component={EditHole} onEnter={requireAuth}/>
       </Route>
-      <Route path="chat" component={Chat} />
-      <Route path="chat/:id" component={EditComment} />
+      <Route path="chat" component={Chat} onEnter={requireAuth}/>
+      <Route path="chat/:id" component={EditComment} onEnter={requireAuth}/>
+
       <Route path="slick-carousel" component={Slider} />
     </Route>
   </Router>

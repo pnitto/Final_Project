@@ -3,10 +3,21 @@ import Backbone from 'backbone';
 
 const ScorecardList = Backbone.Collection.extend({
   model: Scorecard,
-  url: "https://api.parse.com/1/classes/Scorecards",
+  url(){
+    return (
+      "https://api.parse.com/1/classes/Scorecards?where=" + JSON.stringify({
+      "name":  {
+        $regex: this.search
+      }
+    })
+ )
+},
   parse(response){
     return response.results;
-  }
+  },
+  setSearch(search){
+    this.search = search;
+  },
 });
 
 export default ScorecardList;
