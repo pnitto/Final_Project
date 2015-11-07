@@ -3,7 +3,7 @@ import store from '../store';
 import {History} from 'react-router';
 import update from 'react-addons-update';
 import BackboneMixin from '../mixins/backbone';
-import {Input, Button} from 'react-bootstrap';
+import {Input, Button,Table} from 'react-bootstrap';
 
 //need to refresh page after hole information is put in
 
@@ -27,8 +27,8 @@ const EditHole = React.createClass({
     var holeData = {
         partype: Number(this.refs.partype.getValue()),
         playerscore: Number(this.refs.playerscore.getValue()),
-        fir: this.refs.fir.getChecked(),
-        gir: this.refs.gir.getChecked(),
+        fir: this.refs.fir.checked,
+        gir: this.refs.gir.checked,
         putts: Number(this.refs.putts.getValue()),
         holenumber: Number(this.props.params.holeIndex) + 1
     };
@@ -54,34 +54,30 @@ const EditHole = React.createClass({
     let hole = holes && holes[this.props.params.holeIndex] || {};
     console.log(hole);
     return (
-      <fieldset className="edit-hole-fieldset">
-        <h3>Hole {hole.holenumber}</h3>
-        <form onSubmit={this.handleSave}>
-          <label><h5>Par Type</h5></label>
-          <Input type="select" className="par-type-select" name="select" ref="partype" onChange={this.handleChange} value={hole.partype}>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </Input>
+          <div>
+              <form className="edit-hole-form" onSubmit={this.handleSave}>
+              <Input type="select" label="Par Type" className="par-type-select" name="select" ref="partype" onChange={this.handleChange} value={hole.partype}>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+              </Input>
 
-          <label><h5>Your Score</h5></label>
-          <Input className="input-player-score" type="number" addonBefore="#" ref="playerscore" onChange={this.handleChange} value={hole.playerscore}/>
+               <Input className="input-player-score" label="Player Score" type="number" ref="playerscore" onChange={this.handleChange} value={hole.playerscore}/>
 
-          <label><h5>Number of Putts</h5></label>
-          <Input className="input-putts" type="number" addonBefore="#" ref="putts" onChange={this.handleChange} value={hole.putts}/>
+               <Input className="input-putts" label="# of Putts" type="number" ref="putts" onChange={this.handleChange} value={hole.putts}/>
 
-        <label><h5>Fairway in Regulation</h5></label>
-          <Input id="fir" type="checkbox" ref="fir" onChange={this.handleChange} checked={hole.fir} />
+             <label className="FIR">FIR</label>
+               <input id="fir" className="input-fir" type="checkbox" ref="fir" onChange={this.handleChange} checked={hole.fir} />
 
+             <label className="GIR">GIR</label>
+               <input  id="gir" className="input-gir"  type="checkbox" ref="gir" onChange={this.handleChange} checked={hole.gir} />
 
-          <label><h5>Green in Regulation</h5></label>
-            <Input  id="gir" type="checkbox" ref="gir" onChange={this.handleChange} checked={hole.gir} />
+            <div className="save-hole-div">
+               <Button className="btn btn-success" type="submit">Save Hole</Button>
+            </div>
 
-
-          <Button className="btn btn-success" type="submit">Save Hole</Button>
-
-       </form>
-    </fieldset>
+           </form>
+         </div>
     )
   }
 });

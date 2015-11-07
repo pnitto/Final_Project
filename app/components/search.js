@@ -24,7 +24,7 @@ const Search = React.createClass({
     return (
     <div>
       <form onSubmit={this.handleSubmit}>
-        <Input type="text" placeholder="Search Scorecards" ref="name"/>
+        <input type="text" placeholder="Search Scorecards" ref="name"/>
       </form>
       <ul>
       {this.state.SearchCollection.map((x)=>{

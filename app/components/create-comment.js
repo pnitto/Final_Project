@@ -11,7 +11,7 @@ const AddComment = React.createClass({
   handleSubmit(e){
     e.preventDefault();
     store.saveComment({
-      comment: this.refs.comment.getValue(),
+      comment: this.refs.comment.value,
       courseName: this.refs.course.getValue(),
       rating: Number(this.refs.rating.getValue()),
 
@@ -26,9 +26,9 @@ const AddComment = React.createClass({
     //added value property to each option element
     return (
       <form className="chat-form" onSubmit={this.handleSubmit}>
-        <label>Provide Course Name</label>
+        <label className="comment-course-heading">Provide Course Name</label>
         <Input type="text" ref="course" className="course-name"/>
-        <label>Rate A Course</label>
+        <label className="rate-course">Rate A Course</label>
         <Input type="select" ref="rating" className="course-rating">
           <option value="0">0</option>
           <option value="1">1</option>
@@ -37,9 +37,9 @@ const AddComment = React.createClass({
           <option value="4">4</option>
           <option value="5">5</option>
         </Input>
-        <label>Add Comment</label>
-        <Input type="textarea" ref="comment" className="comment-textarea"/>
-        <Button className="btn btn-success" type="submit">Save Comment</Button>
+        <label className="add-comment">Add Comment</label>
+        <textarea ref="comment" className="comment-textarea"></textarea>
+        <Button className="btn btn-success save-comment" type="submit">Save Comment</Button>
       </form>
     )
   }

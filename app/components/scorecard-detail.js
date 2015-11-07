@@ -29,7 +29,7 @@ const ScorecardDetail = React.createClass({
     return (
       <div className="hole-list">
         <h1 className="scorecard-title">{scorecard.name}</h1>
-        <Table className="scorecard-stats" bordered>
+        <Table className="scorecard-stats" bordered condensed striped>
           <thead>
             <tr>
             <th>Stats</th>

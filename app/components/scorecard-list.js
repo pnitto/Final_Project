@@ -36,7 +36,7 @@ const ScorecardList = React.createClass({
       <div className="scorecard-header-l">
         <h1>Your Scorecards</h1>
         <form onChange={this.handleChange}>
-          <Input type="text" ref="courseName" className="search-scorecards" placeholder="Search Scorecards"/>
+          <input type="text" ref="courseName" className="search-scorecards" placeholder="Search Scorecards"/>
         </form>
           <ul className="scorecard-ul">
             {scorecards.map((x)=>{

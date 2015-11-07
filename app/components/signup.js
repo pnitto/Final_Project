@@ -40,8 +40,8 @@ const SignUp = React.createClass({
       <div className="signup-div">
         <h3 className="sign-up-heading">Sign Up</h3>
           <form className="sign-up-form" onSubmit={this.handleSubmit}>
-            <Input className="sign-up-email"type="email" placeholder="Email" ref="email"/>
-            <Input className="sign-up-pword"type="password" placeholder="Password" ref="password" />
+            <input className="sign-up-email"type="email" placeholder="Create Email" ref="email"/>
+            <input className="sign-up-pword"type="password" placeholder="Create Password" ref="password" />
             <Button bsStyle="success" bsSize="large" className="sign-up-btn" type="submit">Sign up</Button>
             {this.state.error && (
               <p>{this.state.error}</p>

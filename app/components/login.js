@@ -16,8 +16,8 @@ const Login = React.createClass({
   },
   handleSubmit(e){
     e.preventDefault();
-    let username = this.refs.email.getValue();
-    let password = this.refs.password.getValue();
+    let username = this.refs.email.value;
+    let password = this.refs.password.value;
 
     let session = store.getSession();
 
@@ -39,9 +39,9 @@ const Login = React.createClass({
       <div className="login-div">
       <h3 className="login-heading">Login</h3>
       <form className="login-form" onSubmit={this.handleSubmit}>
-        <Input className="login-email" type="email" placeholder="Provide Email Address" ref="email"/>
-        <Input className="login-password" type="password" placeholder="Provide Password" ref="password"/>
-        <Button bsStyle="success" bsSize="large" type="submit">Log In</Button>
+        <input className="login-email" type="email" placeholder="Email Address" ref="email"/>
+        <input className="login-password" type="password" placeholder="Password" ref="password"/>
+        <Button className="login-btn" bsStyle="success" bsSize="large" type="submit">Log In</Button>
         {
           this.state.error && (
             <p>Bad Login Information</p>
