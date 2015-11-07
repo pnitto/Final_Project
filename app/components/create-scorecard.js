@@ -17,6 +17,7 @@ const AddScorecard = React.createClass({
     store.saveScorecard({
       name: this.refs.name.getValue(),
     }, {wait:true});
+
   },
   render(){
     return (

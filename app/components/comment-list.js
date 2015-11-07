@@ -19,7 +19,7 @@ const Chat = React.createClass({
   componentWillMount(){
     store.fetchComments();
   },
-//look back at objectid
+  
   handleDelete(comment,e){
     console.log("current User" , store.getSession().currentUser)
     console.log('creator' , comment.creator)

@@ -14,14 +14,13 @@ const ScorecardList = React.createClass({
 
   mixins: [BackboneMixin, History],
 
+  componentWillMount(){
+    store.searchScorecards('');
+  },
   getModels(){
     return {
       scorecards: store.getScorecards()
     }
-
-  },
-  componentWillMount(){
-    store.searchScorecards('');
   },
   handleDelete(scorecard,e){
     store.destroyScorecard(scorecard)
@@ -33,7 +32,6 @@ const ScorecardList = React.createClass({
   },
   render(){
     var scorecards = this.state.scorecards;
-
     return (
       <div className="scorecard-header-l">
         <h1>Your Scorecards</h1>

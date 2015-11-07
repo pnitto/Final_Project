@@ -54,7 +54,7 @@ const Store = _.extend({}, Backbone.Events,{
     }
   },
   saveScorecard(scorecard,options){
-    return scorecards.create(scorecard,options)
+    return scorecards.create(scorecard,_.extend({}, options, {merge: true}))
   },
   destroyScorecard(scorecard){
     return scorecards.get(scorecard.objectId).destroy();

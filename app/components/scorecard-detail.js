@@ -16,7 +16,7 @@ const ScorecardDetail = React.createClass({
   getModels(){
     let scorecardId = this.props.params.scorecardId;
     console.log("Scorecard Id: " + scorecardId)
-    return { scorecard: store.getScorecard(scorecardId) }
+    return {scorecard: store.getScorecard(scorecardId)}
   },
 
   render(){

@@ -5,14 +5,18 @@
 // @import 'foundation';
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~bootstrap/dist/css/bootstrap-theme.css';
+@import '~c3/c3.css';
 
+html{
+  height: 2000px;
+}
 body{
   background-image:url("http://www.hdwallpaperscool.com/wp-content/uploads/2015/01/technology-golf-course-club-premium-high-definition-wallpaper-download-golf-course-images-free.jpg");
   background-size: cover;
   background-repeat:no-repeat;
   background-position:right;
-  height: 900px;
   width:90%;
+  margin-bottom:5%;
 }
 
 
@@ -171,12 +175,14 @@ body{
   padding-bottom: 12%;
 }
 .comments-list-div{
-  background-color: white;
   width: 85%;
   margin: auto;
+  margin-top: 5%;
 }
 .comment-card-div{
   margin-bottom: 5%;
+  border: 1px dotted gray;
+  background-color: #F1F1F1;
 }
 .chat-ul {
   list-style-type: none;
@@ -243,3 +249,4 @@ text-align: center;
   width: 60%;
   margin: auto;
 }
+//-Graphs-//
