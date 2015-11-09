@@ -32,7 +32,7 @@ var App = React.createClass({
     return (
       <div>
         <DropdownButton className="drop-down-btn" bsStyle="primary" title={username} id="bg-nested-dropdown">
-             <MenuItem eventKey="1"><Link className="Links" to="/login">Login</Link></MenuItem>
+          <MenuItem eventKey="1"><Link className="Links" to="/login">Login</Link></MenuItem>
              <MenuItem eventKey="2"><a className="Links" href="#" onClick={this.handleLogout}>Logout</a></MenuItem>
              <MenuItem eventKey="3"><Link className="Links" to="/signup">Sign Up</Link></MenuItem>
          </DropdownButton>
@@ -40,7 +40,7 @@ var App = React.createClass({
         <nav className="nav">
          <ul className="nav-ul">
            <li className="nav-li"><IndexLink className="Links" to="/"><i className="fa fa-home fa-2x"></i></IndexLink></li>
-             <li className="nav-li"><Link className="Links" to="/create-scorecard">Add Scorecard</Link></li>
+             <li className="nav-li"><Link className="Links" to="/create-scorecard"><Glyphicon className="list-icon"glyph="list" /></Link></li>
              <li className="nav-li"><Link className="Links" to="/chat"><i className="fa fa-comment fa-2x"></i></Link></li>
              <li className="nav-li"><Link className="Links" to="/graphs"><Glyphicon className="stats-icon" glyph="stats" /></Link></li>
            </ul>

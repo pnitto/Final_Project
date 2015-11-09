@@ -19,7 +19,7 @@ const Chat = React.createClass({
   componentWillMount(){
     store.fetchComments();
   },
-  
+
   handleDelete(comment,e){
     console.log("current User" , store.getSession().currentUser)
     console.log('creator' , comment.creator)
@@ -41,11 +41,10 @@ const Chat = React.createClass({
       <ul className="chat-ul">
         {comments.map((x)=>{
           return (<div className="comment-card-div" key={x.objectId}>
-                  <li>CreatedBy: {x.creator.username}</li>
-                  <li>Course Name:<Link to={`/chat/${x.objectId}`} state={{comment:x}}>{x.courseName}</Link></li>
-                  <li>Course Rating: {x.rating}</li>
-                  <li>Course Comment: <span className="comment"><i>{x.comment}</i></span></li>
-                  <li><Glyphicon onClick={this.handleDelete.bind(this,x)} glyph="remove" /></li>
+          <li><Link to={`/chat/${x.objectId}`} state={{comment:x}}>{x.courseName}</Link>{"(" +  x.rating + " out of 5)"}<Glyphicon onClick={this.handleDelete.bind(this,x)} glyph="remove" /></li>
+
+        <div className="line" />
+                  <li>{x.creator.username}:<span className="comment">{x.comment}</span></li>
                 </div>)
         })}
       </ul>

@@ -9,6 +9,7 @@
 
 //look at added image to file structure
 
+
 html{
   height: 2000px;
 }
@@ -19,6 +20,7 @@ body{
   background-position:center;
   width:90%;
   margin-bottom:5%;
+  font-family: "Monaco"
 }
 
 //-Nav-//
@@ -27,7 +29,10 @@ body{
   }
 }
 .stats-icon{
-  font-size: 22px;
+  font-size: 25px;
+}
+.list-icon{
+  font-size: 25px;
 }
 .drop-down-btn{
 }
@@ -45,7 +50,7 @@ body{
 .nav-li{
   display:inline-block;
   padding-right:4%;
-  margin-left: 0.2%;
+  margin-left: 10%;
   color: #97CF22;
 }
 .nav-li:hover{
@@ -60,6 +65,8 @@ body{
 //--Home Page--//
 .home-div{
   text-align: center;
+  margin-top: 15%;
+  margin-left: 5%;
 }
 //--Sign Up Page--//
 .sign-up-heading{
@@ -138,6 +145,7 @@ body{
 //--Home Page--//
 .begin-round-btn{
   margin: auto;
+  margin-top: 10%;
 }
 .home-scorecard-link{
   color: white;
@@ -150,9 +158,29 @@ body{
 .delete-scorecard{
 
 }
+.hole-tip{
+  text-align: center;
+}
+//-Create Scorecard-//
+.create-scorecard{
+  height: 35px;
+  margin-top: 5%;
+  padding-left:3%;
+}
+.add-scorecard-btn{
+  margin-top: 5%;
+
+}
+.scorecards-header{
+  margin-left: 7%;
+}
 .search-scorecards{
   width: 50%;
   margin: auto;
+  height: 34px;
+  margin-left: 10%;
+  padding-left:3%;
+
 }
 .fa-trash-o{
   color:black;
@@ -173,6 +201,7 @@ body{
 }
 .scorecard-ul{
   list-style-type: none;
+  margin-top: 5%;
 }
 .scorecard-name:hover{
   text-decoration: underline;
@@ -206,7 +235,10 @@ body{
   top: -62%;
 }
 //--Chat Page--//
+.line{
+  border:1/2px solid gray;
 
+}
 .chat-form{
   margin:auto;
   width: 75%;
@@ -222,7 +254,7 @@ body{
 .comment-card-div{
   margin-bottom: 5%;
   border: 1px dotted gray;
-  background-color: #F1F1F1;
+  background-color: white;
 }
 .chat-ul {
   list-style-type: none;
@@ -231,41 +263,44 @@ body{
   color: black;
 }
 input.course-name{
-  width: 60%;
+  width: 80%;
   margin: auto;
-  margin-left: 29%;
+  margin-left: 10%;
   border-radius: 8px;
 }
 .comment-course-heading{
-  margin-left: 30%;
+  margin-left: 10%;
 }
 .course-rating{
   width: 16%;
-  margin-left: 29%;
+  margin-left: 10%;
 }
 .rate-course{
-  margin-left: 29%;
+  margin-left: 10%;
 }
 .add-comment{
   vertical-align: top;
   margin-top: -1%;
   position: relative;
-  left: 30%;
+  left: 10%;
 
 }
 .comment-textarea{
-  width: 60%;
+  width: 80%;
   height: 100px;
   border-radius: 8px;
-  margin-top: 7%;
+  margin-top: 5%;
+  margin-left: 10%;
 }
 .chat-room-heading{
   text-align: center;
-  margin-left: 11%;
 }
 .save-comment{
   margin-left: 29%;
   margin-top: 3%;
+}
+.glyphicon {
+  float: right;
 }
 //--Edit Hole--//
 .par-type-select{
@@ -286,6 +321,13 @@ text-align: center;
 }
 .hole-div{
 text-align: center;
+}
+.table-bordered>tbody>tr>td{
+  width: 20%;
+  font-size: 13px;
+}
+.num-col{
+  text-align: center;
 }
 
 
@@ -331,3 +373,12 @@ margin-left: 9%;
 //--Edit Comment--//
 
 //-Graphs-//
+.c3 svg g g.c3-axis.c3-axis-x {
+font: 13px sans-serif;
+}
+.c3 svg g g.c3-axis.c3-axis-y{
+  font: 12px sans-serif;
+}
+.c3 text{
+  font-size: 14px;
+}

@@ -19,9 +19,9 @@ const SignUp = React.createClass({
   handleSubmit(e){
     e.preventDefault();
 
-    let email = this.refs.email.getValue();
+    let email = this.refs.email.value;
     let username = email;
-    let password = this.refs.password.getValue();
+    let password = this.refs.password.value;
 
     store.createUser({username, password, email}).then(() => {
           let { location } = this.props;

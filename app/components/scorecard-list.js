@@ -27,14 +27,15 @@ const ScorecardList = React.createClass({
   },
   handleChange(e){
     e.preventDefault();
-    console.log(this.refs.courseName.getValue())
-    store.searchScorecards(this.refs.courseName.getValue())
+    console.log(this.refs.courseName.value)
+    store.searchScorecards(this.refs.courseName.value)
+
   },
   render(){
     var scorecards = this.state.scorecards;
     return (
       <div className="scorecard-header-l">
-        <h1>Your Scorecards</h1>
+        <h1 className="scorecards-header">Your Scorecards</h1>
         <form onChange={this.handleChange}>
           <input type="text" ref="courseName" className="search-scorecards" placeholder="Search Scorecards"/>
         </form>

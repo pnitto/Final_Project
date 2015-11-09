@@ -15,7 +15,7 @@ const AddScorecard = React.createClass({
   handleSubmit(e){
     e.preventDefault();
     store.saveScorecard({
-      name: this.refs.name.getValue(),
+      name: this.refs.name.value,
     }, {wait:true});
 
   },
@@ -24,8 +24,8 @@ const AddScorecard = React.createClass({
       <div>
         <fieldset className="scorecard-fieldset">
           <form onSubmit={this.handleSubmit}>
-            <input type="text" placeholder="Add Scorecard" ref="name" />
-            <Button className="btn btn-success" type="submit">Add Scorecard</Button>
+            <input className="create-scorecard" type="text" placeholder="Add Scorecard" ref="name" />
+            <Button className="btn btn-success add-scorecard-btn" type="submit">Add Scorecard</Button>
           </form>
         </fieldset>
         <ScorecardList />

@@ -5,7 +5,7 @@ import update from 'react-addons-update';
 import BackboneMixin from '../mixins/backbone';
 import {Input, Button,Table} from 'react-bootstrap';
 
-//need to refresh page after hole information is put in
+//Editing hole is wonky
 
 const EditHole = React.createClass({
 
@@ -32,7 +32,6 @@ const EditHole = React.createClass({
         putts: Number(this.refs.putts.getValue()),
         holenumber: Number(this.props.params.holeIndex) + 1
     };
-
     var newScorecard = update(this.state.scorecard, {
       holes: {
         $splice: [
@@ -45,6 +44,7 @@ const EditHole = React.createClass({
     });
   },
   handleSave(e){
+    e.preventDefault();
     store.saveScorecard(this.state.scorecard)
     this.history.goBack();
   },

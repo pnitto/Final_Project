@@ -39,22 +39,23 @@ const ScorecardDetail = React.createClass({
         <tbody>
           <tr>
             <td>Score:</td>
-            <td>{scorecard.scoreTotal}</td>
+            <td className="num-col">{scorecard.scoreTotal}</td>
           </tr>
           <tr>
             <td>FIR Average(%): </td>
-            <td>{Math.round(scorecard.firAverage)}</td>
+            <td className="num-col">{Math.round(scorecard.firAverage)}</td>
           </tr>
           <tr>
             <td>GIR Average(%): </td>
-            <td>{Math.round(scorecard.girAverage)}</td>
+            <td className="num-col">{Math.round(scorecard.girAverage)}</td>
           </tr>
           <tr>
             <td># of Putts</td>
-            <td>{scorecard.puttTotal}</td>
+            <td className="num-col">{scorecard.puttTotal}</td>
           </tr>
         </tbody>
       </Table>
+      <h6 className="hole-tip">*Must click on the Hole Link before editing.</h6>
         <Carousel interval={0} className="carousel">
           {holes.map((x)=>
             <CarouselItem key={Math.round(Math.random() * 100000)}>
