@@ -38,16 +38,18 @@ const EditComment = React.createClass({
       <fieldset className="edit-comment-fieldset">
         <form onSubmit={this.handleSubmit}>
 
-          <label>Edit Course Name</label>
-          <Input type="text" ref="courseName" onChange={this.handleChange.bind(this,'courseName')} value={comment.courseName}/>
+          <label className="edit-course-name">Edit Course Name</label>
+          <input className="edit-course-input" type="text" ref="courseName" onChange={this.handleChange.bind(this,'courseName')} value={comment.courseName}/>
 
-          <label>Edit Comment</label>
-          <Input type="textarea" ref="comment" onChange={this.handleChange.bind(this,'comment')} value={comment.comment}/>
+            <label className="edit-rating">Edit Rating</label>
+            <input  className="edit-rating-input" type="number" ref="rating" onChange={this.handleChange.bind(this,'rating')} value={comment.rating}/>
 
-          <label>Edit Rating</label>
-          <Input type="number" ref="rating" onChange={this.handleChange.bind(this,'rating')} value={comment.rating}/>
-          <Button type="submit">Update Comment</Button>
-          
+          <label className="edit-comment">Edit Comment</label>
+          <textarea ref="comment" onChange={this.handleChange.bind(this,'comment')} value={comment.comment}/>
+
+
+          <Button className="update-comment-btn" type="submit" bsStyle="warning">Update Comment</Button>
+
         </form>
       </fieldset>
     )
