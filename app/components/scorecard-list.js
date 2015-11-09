@@ -29,7 +29,6 @@ const ScorecardList = React.createClass({
     e.preventDefault();
     console.log(this.refs.courseName.value)
     store.searchScorecards(this.refs.courseName.value)
-
   },
   render(){
     var scorecards = this.state.scorecards;

@@ -110,7 +110,7 @@ const Graph = React.createClass({
           },
           y: {
             label: {
-              text: "%",
+              text: "~%",
               position: "outer-middle"
             }
           }
