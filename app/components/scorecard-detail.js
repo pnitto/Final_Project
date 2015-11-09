@@ -20,7 +20,6 @@ const ScorecardDetail = React.createClass({
   },
 
   render(){
-
     let scorecard = this.state.scorecard;
     console.log(scorecard)
     let scorecardId = this.props.params.scorecardId;
@@ -42,11 +41,11 @@ const ScorecardDetail = React.createClass({
             <td className="num-col">{scorecard.scoreTotal}</td>
           </tr>
           <tr>
-            <td>FIR Average(%): </td>
+            <td>FIR(%): </td>
             <td className="num-col">{Math.round(scorecard.firAverage)}</td>
           </tr>
           <tr>
-            <td>GIR Average(%): </td>
+            <td>GIR(%): </td>
             <td className="num-col">{Math.round(scorecard.girAverage)}</td>
           </tr>
           <tr>

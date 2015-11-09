@@ -5,6 +5,7 @@ import Search from '../components/search';
 import BackboneMixin from '../mixins/backbone';
 import moment from 'moment';
 import {Glyphicon, Button, Input} from 'react-bootstrap';
+import _ from 'underscore';
 
 const ScorecardList = React.createClass({
 
@@ -32,6 +33,7 @@ const ScorecardList = React.createClass({
   },
   render(){
     var scorecards = this.state.scorecards;
+    _.sortBy(scorecards,'createdAt').reverse();
     return (
       <div className="scorecard-header-l">
         <h1 className="scorecards-header">Your Scorecards</h1>

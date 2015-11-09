@@ -36,7 +36,7 @@ const Graph = React.createClass({
     })
     scores.unshift('Round Score');
     console.log(scores)
-    var colors = ['#1f77b4', '#aec7e8', '#ff7f0e', '#ffbb78', '#2ca02c', '#98df8a', '#d62728', '#ff9896', '#9467bd', '#c5b0d5', '#8c564b', '#c49c94', '#e377c2', '#f7b6d2', '#7f7f7f', '#c7c7c7', '#bcbd22', '#dbdb8d', '#17becf', '#9edae5'];
+    var colors = ['#1f77b4', '#0047DB', '#ff7f0e', '#761F2F', '#2ca02c', '#000', '#d62728', '#BFE727', '#9467bd', '#c5b0d5', '#8c564b', '#c49c94', '#e377c2', '#f7b6d2', '#7f7f7f', '#c7c7c7', '#bcbd22', '#dbdb8d', '#17becf', '#9edae5'];
     var scoreChart = c3.generate({
       bindto: "#scoreChart",
       size:{
@@ -114,6 +114,9 @@ const Graph = React.createClass({
               position: "outer-middle"
             }
           }
+      },
+      point:{
+        r: 5
       }
     });
 
@@ -162,8 +165,8 @@ const Graph = React.createClass({
     return (
       <div>
         <div id="scoreChart" className="score-graph"></div>
-        <div id="firChart"></div>
-        <div id="puttChart"></div>
+        <div id="firChart" className="gir-fir-graph"></div>
+        <div id="puttChart" className="putt-graph"></div>
     </div>
     )
   }

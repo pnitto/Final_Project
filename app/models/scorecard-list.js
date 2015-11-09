@@ -13,7 +13,8 @@ const ScorecardList = Backbone.Collection.extend({
  )
 },
   parse(response){
-    return response.results;
+    return response.results
+
   },
   setSearch(search){
     this.search = search;
