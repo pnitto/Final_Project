@@ -42,7 +42,7 @@ const ScorecardList = React.createClass({
         </form>
           <ul className="scorecard-ul">
             {scorecards.map((x)=>{
-              return (<li key={x.objectId}>
+              return (<li key={x.objectId} className="scorecard-li">
                 <Link state={{scorecard:x}} to={`/scorecards/${x.objectId}`}>
                 <span className="scorecard-name">{x.name}</span>
               </Link><h5>{moment(x.createdAt).format('MMMM Do YYYY, h:mm a')}</h5>

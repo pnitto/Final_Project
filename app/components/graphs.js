@@ -65,7 +65,7 @@ const Graph = React.createClass({
           },
           y: {
             label:{
-              text:"Score",
+              text:"Score(strokes)",
               position: "outer-middle"
             }
           }
@@ -110,7 +110,7 @@ const Graph = React.createClass({
           },
           y: {
             label: {
-              text: "~%",
+              text: "%(approx.)",
               position: "outer-middle"
             }
           }
