@@ -44,7 +44,8 @@ const Chat = React.createClass({
           <li><Link to={`/chat/${x.objectId}`} state={{comment:x}}>{x.courseName}</Link>{"(" +  x.rating + " out of 5)"}<Glyphicon onClick={this.handleDelete.bind(this,x)} glyph="remove" /></li>
 
         <div className="line" />
-                  <li>{x.creator.username}:<span className="comment">{x.comment}</span></li>
+                  <li>{x.creator.username}</li>
+                    <li><span className="comment">{x.comment}</span></li>
                 </div>)
         })}
       </ul>
