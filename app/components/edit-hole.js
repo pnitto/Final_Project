@@ -54,7 +54,7 @@ const EditHole = React.createClass({
     let hole = holes && holes[this.props.params.holeIndex] || {};
     console.log(hole);
     return (
-          <div>
+          <div className="edit-hole-div">
               <form className="edit-hole-form" onSubmit={this.handleSave}>
               <Input type="select" label="Par Type" className="par-type-select" name="select" ref="partype" onChange={this.handleChange} value={hole.partype}>
                   <option value="3">3</option>

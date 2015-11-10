@@ -43,10 +43,11 @@ const ScorecardList = React.createClass({
           <ul className="scorecard-ul">
             {scorecards.map((x)=>{
               return (<li key={x.objectId} className="scorecard-li">
-                <Link state={{scorecard:x}} to={`/scorecards/${x.objectId}`}>
-                <span className="scorecard-name">{x.name}</span>
-              </Link><h5>{moment(x.createdAt).format('MMMM Do YYYY, h:mm a')}</h5>
-            <Button className="delete-scorecard" bsSize="large"><Glyphicon glyph="remove" onClick={this.handleDelete.bind(this,x)} /></Button></li>)
+                <Link state={{scorecard:x}} to={`/scorecards/${x.objectId}`} className="link-to-scorecard">
+                <h3 className="scorecard-name">{x.name}</h3>
+              </Link>
+              <h5>{moment(x.createdAt).format('MMMM Do YYYY, h:mm a')}</h5>
+            <Button className="delete-scorecard" bsSize="large"><Glyphicon glyph="remove" className="remove" onClick={this.handleDelete.bind(this,x)} /></Button></li>)
             })}
           </ul>
       </div>

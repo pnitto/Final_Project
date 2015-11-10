@@ -20,7 +20,7 @@ html{
 }
 body{
   background: none;
-  font-family: "Monaco";
+  font-family: "Arial";
   min-height: 600px;
 
 }
@@ -160,22 +160,38 @@ body{
 //--Scorecard Page--//
 .delete-scorecard{
   margin-bottom: 3%;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  position: relative;
+  left: -100px;
 }
+.remove{
+  position: relative;
+  left: 6px;
+}
+
 .scorecard-li{
+  padding-top: 3%;
   background-color: white;
   border-radius: 5px;
   box-shadow: 5px 5px 5px black;
   margin-bottom: 5%;
+  margin-top: 5%;
+}
+.link-to-scorecard{
+  margin-top: 5%;
 }
 .hole-tip{
-  text-align: center;
   margin-bottom: 20%;
+  margin-left: 22%;
 }
 //-Create Scorecard-//
 .create-scorecard{
   height: 35px;
   margin-top: 5%;
   padding-left:3%;
+  border-radius: 5px;
 }
 .add-scorecard-btn{
   margin-top: 5%;
@@ -188,6 +204,9 @@ body{
   width: 50%;
   height: 30px;
   margin-left: 11%;
+  border-radius: 5px;
+  padding: 2%;
+  font-size: 12px;
 
 }
 .fa-trash-o{
@@ -210,9 +229,9 @@ body{
 .scorecard-ul{
   list-style-type: none;
   margin-top: 5%;
-  margin-bottom: 25%;
+  margin-bottom: 30%;
 }
-.scorecard-name:hover{
+.scorecard-name{
   text-decoration: underline;
 }
 .holes {
@@ -221,13 +240,14 @@ body{
 }
 .scorecard-stats{
   border: 1px solid black;
-  width: 40%;
+  width: 50%;
   background-color: white;
-  margin: auto;
   margin-bottom: 2%;
+  margin-left: 30%;
 }
 .hole-link {
   font-size: 30px;
+  text-decoration: underline;
 }
 //--Hole Detail Page--//
 
@@ -271,6 +291,7 @@ body{
 }
 .chat-ul {
   list-style-type: none;
+  margin-bottom: 20%;
 }
 .delete-comment{
   color: black;
@@ -309,7 +330,7 @@ input.course-name{
   text-align: center;
 }
 .save-comment{
-  margin-left: 29%;
+  margin-left: 10%;
   margin-top: 3%;
 }
 .glyphicon {
@@ -319,7 +340,10 @@ input.course-name{
 .par-type-select{
   width: 58px;
   display: inline-block;
-
+}
+.edit-hole-div {
+  margin-left: 8%;
+  overflow: hidden;
 }
 
 .comment:before,.comment:after{
@@ -333,6 +357,7 @@ text-align: center;
   padding-top: 5%;
   margin-bottom: 10%;
   height: 650px;
+  margin-top: -5%;
 }
 .hole-div{
 text-align: center;
@@ -357,7 +382,7 @@ input[type=checkbox] {
 
 //--Scorecard Detail--//
 .scorecard-title{
-  text-align: center;
+  margin-left: 40%;
 }
 .input-player-score{
 display: inline-block;
@@ -379,7 +404,8 @@ display: inline-block;
   border-radius: 5px;
   box-shadow: 5px 5px 5px black;
   padding: 5%;
-  margin-bottom:30%;
+  margin-bottom:40%;
+  overflow: hidden;
 }
 .par-type-select{
 margin-left: 9%;
@@ -396,22 +422,24 @@ margin-left: 9%;
 //--Edit Comment--//
 .edit-course-name{
 padding-right: 5%;
+margin-left: 5%;
 }
 .edit-rating{
-  margin: 5%;
+  margin-right: 11%;
+  margin-left: 5%;
 }
 .edit-rating-input{
   margin-top: 5%;
-  margin-left: 5.7%;
+  margin-left: 4%;
+  margin-bottom: 5%;
 }
 .edit-comment{
-  margin: 4%;
+  margin-left: 5%;
   padding-right: 5%;
   vertical-align: top;
 }
 .edit-comment-fieldset{
-  margin-top: 10%;
-  margin-left: 10%;
+margin-top: 15%;
 }
 .update-comment-btn{
   margin-left: 39%;
@@ -468,4 +496,7 @@ font: 13px sans-serif;
 }
 tspan{
   font-weight: bold;
+}
+.c3-legend-item-event{
+
 }
