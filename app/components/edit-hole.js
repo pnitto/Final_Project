@@ -62,9 +62,9 @@ const EditHole = React.createClass({
                   <option value="5">5</option>
               </Input>
 
-               <Input className="input-player-score" label="Player Score" type="number" ref="playerscore" onChange={this.handleChange} value={hole.playerscore}/>
+               <Input className="input-player-score" label="Player Score" step="1" min="1" max="12" type="number" ref="playerscore" onChange={this.handleChange} value={hole.playerscore}/>
 
-               <Input className="input-putts" label="# of Putts" type="number" ref="putts" onChange={this.handleChange} value={hole.putts}/>
+               <Input className="input-putts" label="# of Putts" step="1" type="number" ref="putts" onChange={this.handleChange} value={hole.putts}/>
 
              <label className="FIR">FIR</label>
                <input id="fir" className="input-fir" type="checkbox" ref="fir" onChange={this.handleChange} checked={hole.fir} />
