@@ -45,7 +45,7 @@ const EditComment = React.createClass({
             <input  className="edit-rating-input" type="number" ref="rating" onChange={this.handleChange.bind(this,'rating')} value={comment.rating}/>
 
           <label className="edit-comment">Edit Comment</label>
-          <textarea ref="comment" onChange={this.handleChange.bind(this,'comment')} value={comment.comment}/>
+          <textarea className="edit-comment-textarea" ref="comment" onChange={this.handleChange.bind(this,'comment')} value={comment.comment}/>
 
 
           <Button className="update-comment-btn" type="submit" bsStyle="warning">Update Comment</Button>

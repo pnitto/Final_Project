@@ -424,12 +424,16 @@ margin-left: 9%;
 padding-right: 5%;
 margin-left: 5%;
 }
+.edit-course-input{
+  margin-left:4%;
+  margin-bottom:5%;
+}
 .edit-rating{
   margin-right: 11%;
   margin-left: 5%;
 }
 .edit-rating-input{
-  margin-top: 5%;
+  margin-top: 2%;
   margin-left: 4%;
   margin-bottom: 5%;
 }
@@ -438,11 +442,18 @@ margin-left: 5%;
   padding-right: 5%;
   vertical-align: top;
 }
+.edit-comment-textarea{
+  margin-left:4%;
+  width: 200px;
+  height: 100px;
+}
 .edit-comment-fieldset{
 margin-top: 15%;
+margin:10%;
+margin-left: 29%;
 }
 .update-comment-btn{
-  margin-left: 39%;
+  margin-left: 5%;
   margin-top: 5%;
 }
 //-Graphs-//
