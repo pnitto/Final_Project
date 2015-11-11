@@ -166,8 +166,11 @@ body{
 }
 .remove{
   position: relative;
-  left: -2px;
-  top: -88px;
+  left: -4px;
+  top: -92px;
+}
+.time-sc-created{
+  padding-bottom: 5%;
 }
 
 .scorecard-li{
@@ -232,6 +235,8 @@ body{
 }
 .scorecard-name{
   text-decoration: underline;
+  margin-bottom: 8%;
+  line-height: 0.5;
 }
 .holes {
   text-align: center;
@@ -269,8 +274,11 @@ body{
 //--Chat Page--//
 .line{
   border:1/2px solid gray;
-
 }
+.comment-course-name{
+  line-height: 0.2;
+}
+
 .chat-form{
   margin:auto;
   width: 75%;

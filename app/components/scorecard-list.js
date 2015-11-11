@@ -41,12 +41,13 @@ const ScorecardList = React.createClass({
           <input type="text" ref="courseName" className="search-scorecards" placeholder="Search Scorecards"/>
         </form>
           <ul className="scorecard-ul">
-            {scorecards.map((x)=>{
+            {scorecards.map((x)=> {
+              console.log(x);
               return (<li key={x.objectId} className="scorecard-li">
                 <Link state={{scorecard:x}} to={`/scorecards/${x.objectId}`} className="link-to-scorecard">
                 <h3 className="scorecard-name">{x.name}</h3>
               </Link>
-              <h5>{moment(x.createdAt).format('MMMM Do YYYY, h:mm a')}</h5>
+              <h5 className="time-sc-created">{moment(x.createdAt).format('MMMM Do YYYY, h:mm a')}</h5>
             <Glyphicon glyph="remove" className="remove" onClick={this.handleDelete.bind(this,x)} /></li>)
             })}
           </ul>

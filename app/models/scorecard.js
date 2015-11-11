@@ -11,6 +11,7 @@ const Scorecard = Backbone.Model.extend({
 
   defaults(){
     return {
+      time: Date.now(),
       creator: { toJSON: function() {} },
       name: "",
       holes: Array.apply(null,Array(18)).map((i,index)=>{return {
@@ -20,7 +21,6 @@ const Scorecard = Backbone.Model.extend({
         fir: false,
         gir: false,
         putts: 0,
-        time: Date.now(),
       };
     }
   ),

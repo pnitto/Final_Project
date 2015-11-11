@@ -30,7 +30,7 @@ const EditComment = React.createClass({
     e.preventDefault();
     let comment = this.state.comment
     store.saveComment(comment)
-     this.history.goBack()
+    this.history.goBack()
   },
   render(){
     let comment = this.state.comment

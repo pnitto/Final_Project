@@ -42,7 +42,7 @@ const Chat = React.createClass({
         {comments.map((x)=>{
           return (<div className="comment-card-div" key={x.objectId}>
           <Glyphicon className="remove-comment" onClick={this.handleDelete.bind(this,x)} glyph="remove" />
-          <li><Link to={`/chat/${x.objectId}`} state={{comment:x}}><h4>{x.courseName}</h4></Link><span className="comment-username">{x.creator.username}</span></li>
+          <li><Link to={`/chat/${x.objectId}`} state={{comment:x}}><h4 className="comment-course-name">{x.courseName}</h4></Link><span className="comment-username">{x.creator.username}</span></li>
                   <li><span className="comment-rating">{"(" +  x.rating + " out of 5)"}</span></li>
                     <li><span className="comment">{x.comment}</span></li>
                 </div>)

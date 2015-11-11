@@ -27,6 +27,7 @@ const Graph = React.createClass({
     var labels = scorecards.map((x)=>{
       return x.name
     })
+
     labels.unshift('x')
     console.log(labels)
 
@@ -68,7 +69,7 @@ const Graph = React.createClass({
               type: 'category',
               tick: {
                   multiline: false,
-                  rotate:45
+                  rotate:45,
               },
               height: 130
           },
