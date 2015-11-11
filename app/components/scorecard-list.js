@@ -33,7 +33,7 @@ const ScorecardList = React.createClass({
   },
   render(){
     var scorecards = this.state.scorecards;
-    _.sortBy(scorecards,'createdAt').reverse();
+    console.log(scorecards)
     return (
       <div className="scorecard-header-l">
         <h1 className="scorecards-header">Your Scorecards</h1>
@@ -47,7 +47,7 @@ const ScorecardList = React.createClass({
                 <h3 className="scorecard-name">{x.name}</h3>
               </Link>
               <h5>{moment(x.createdAt).format('MMMM Do YYYY, h:mm a')}</h5>
-            <Button className="delete-scorecard" bsSize="large"><Glyphicon glyph="remove" className="remove" onClick={this.handleDelete.bind(this,x)} /></Button></li>)
+            <Glyphicon glyph="remove" className="remove" onClick={this.handleDelete.bind(this,x)} /></li>)
             })}
           </ul>
       </div>

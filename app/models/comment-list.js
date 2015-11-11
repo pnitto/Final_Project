@@ -6,6 +6,9 @@ const CommentList = Backbone.Collection.extend({
   url: "https://api.parse.com/1/classes/Comments?include=creator",
   parse(response){
     return response.results
+  },
+  comparator(model){
+    return -model.get('time')
   }
 });
 

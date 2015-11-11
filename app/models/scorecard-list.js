@@ -5,12 +5,15 @@ const ScorecardList = Backbone.Collection.extend({
   model: Scorecard,
   url(){
     return (
-      "https://api.parse.com/1/classes/Scorecards?order=-createdAt&where=" + JSON.stringify({
+      "https://api.parse.com/1/classes/Scorecards?&where=" + JSON.stringify({
       "name":  {
         $regex: this.search
       }
     })
  )
+},
+comparator(model){
+  return -model.get('time');
 },
   parse(response){
     return response.results

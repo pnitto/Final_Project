@@ -54,6 +54,15 @@ const Graph = React.createClass({
               return colors[d.index];
           }
       },
+      legend:{
+        position: 'inset',
+        inset:{
+          anchor: 'top-left'
+        }
+      },
+      padding:{
+        right: 100
+      },
       axis: {
           x: {
               type: 'category',
@@ -99,6 +108,9 @@ const Graph = React.createClass({
         ],
         type:'spline'
       },
+      padding:{
+        right: 100
+      },
       axis: {
           x: {
               type: 'category',
@@ -115,6 +127,12 @@ const Graph = React.createClass({
             }
           }
       },
+      legend:{
+        position: 'inset',
+        inset:{
+          anchor: 'top-left'
+        }
+      },
       point:{
         r: 5
       }
@@ -129,6 +147,9 @@ const Graph = React.createClass({
 
   var puttChart = c3.generate({
     bindto: "#puttChart",
+    padding:{
+      right: 100
+    },
     size: {
       height: 400,
       width: 400
@@ -143,6 +164,12 @@ const Graph = React.createClass({
       color: function (color, d) {
             return colors[d.index];
         }
+    },
+    legend:{
+      position: 'inset',
+      inset:{
+        anchor: 'top-left'
+      }
     },
     axis: {
         x: {
@@ -160,8 +187,8 @@ const Graph = React.createClass({
           }
         }
     }
-  })
 
+  })
     return (
       <div>
         <div id="scoreChart" className="score-graph"></div>

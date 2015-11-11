@@ -41,11 +41,11 @@ const ScorecardDetail = React.createClass({
             <td className="num-col">{scorecard.scoreTotal}</td>
           </tr>
           <tr>
-            <td>FIR(%): </td>
+            <td>F.I.R(%): </td>
             <td className="num-col">{Math.round(scorecard.firAverage)}</td>
           </tr>
           <tr>
-            <td>GIR(%): </td>
+            <td>G.I.R(%): </td>
             <td className="num-col">{Math.round(scorecard.girAverage)}</td>
           </tr>
           <tr>

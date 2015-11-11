@@ -8,7 +8,7 @@ import {Link} from 'react-router';
 const Scorecard = Backbone.Model.extend({
   idAttribute: "objectId",
   urlRoot: "https://api.parse.com/1/classes/Scorecards",
-  
+
   defaults(){
     return {
       creator: { toJSON: function() {} },
@@ -20,6 +20,7 @@ const Scorecard = Backbone.Model.extend({
         fir: false,
         gir: false,
         putts: 0,
+        time: Date.now(),
       };
     }
   ),

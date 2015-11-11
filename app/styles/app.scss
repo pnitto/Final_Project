@@ -166,7 +166,8 @@ body{
 }
 .remove{
   position: relative;
-  left: 6px;
+  left: -2px;
+  top: -88px;
 }
 
 .scorecard-li{
@@ -246,6 +247,9 @@ body{
 .hole-link {
   font-size: 30px;
   text-decoration: underline;
+}
+.hole-link:hover{
+  color:white;
 }
 //--Hole Detail Page--//
 
@@ -356,9 +360,8 @@ input.course-name{
   margin-left: 8%;
   overflow: hidden;
 }
-
-.comment:before,.comment:after{
-  content:'"';
+.comment{
+  font-style: italic;
 }
 .C-I{
 text-align: center;
@@ -393,14 +396,18 @@ input[type=checkbox] {
 
 //--Scorecard Detail--//
 .scorecard-title{
-  margin-left: 40%;
+  width:100%;
+  text-align: center;
+  margin-left:4%;
 }
+
 .input-player-score{
 display: inline-block;
+margin-left: 6%;
 }
 .input-putts{
   display: inline-block;
-  margin-left: 8%;
+  margin-left: 15%;
 }
 .save-hole-div{
   margin-top: 5%;
@@ -419,7 +426,7 @@ display: inline-block;
   overflow: hidden;
 }
 .par-type-select{
-margin-left: 9%;
+margin-left: 17%;
 }
 .input-fir{
   margin-right: 3%;
@@ -444,14 +451,18 @@ margin-left: 5%;
   margin-left: 5%;
 }
 .edit-rating-input{
-  margin-top: 2%;
   margin-left: 4%;
   margin-bottom: 5%;
+  width: 18%;
+  position: relative;
+  right: 49%;
+  top: 26px;
 }
 .edit-comment{
   margin-left: 5%;
   padding-right: 5%;
   vertical-align: top;
+  margin-top: 12%;
 }
 .edit-comment-textarea{
   margin-left:4%;
@@ -477,7 +488,6 @@ font: 13px sans-serif;
 .c3 text{
   font-size: 14px;
 }
-
 .c3-line  {
   stroke-width: 2px;
 }
@@ -492,6 +502,7 @@ font: 13px sans-serif;
   border-radius: 10px;
   box-shadow: 5px 5px 5px black;
   opacity: 0.85;
+  padding-right: 5%;
 }
 .gir-fir-graph{
   background-color: white;
@@ -499,7 +510,7 @@ font: 13px sans-serif;
   margin-left: 5%;
   overflow: scroll;
   width: 100%;
-  padding-top: 5%;
+  padding-top: 10%;
   border-radius: 10px;
   box-shadow: 5px 5px 5px black;
   opacity: 0.85;
@@ -514,7 +525,8 @@ font: 13px sans-serif;
   padding-top: 5%;
   border-radius: 10px;
   box-shadow: 5px 5px 5px black;
-  opacity: 0.85
+  opacity: 0.85;
+  margin-bottom: 30%;
 }
 tspan{
   font-weight: bold;

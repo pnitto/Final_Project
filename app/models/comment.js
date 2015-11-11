@@ -20,6 +20,7 @@ const Comment = Backbone.Model.extend({
       courseName: "",
       comment: "",
       rating: 0,
+      time: Date.now()
     }
   },
 
