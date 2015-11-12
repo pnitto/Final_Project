@@ -50,9 +50,14 @@ body{
 }
 .nav-li{
   display:inline-block;
-  padding-right:4%;
-  margin-left: 10%;
+  padding-right:10%;
+  margin-left: 9%;
   color: #97CF22;
+}
+.nav-li-first{
+  display: inline-block;
+  padding-right:6%;
+
 }
 .nav-li:hover{
   color:white;

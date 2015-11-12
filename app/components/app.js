@@ -39,7 +39,7 @@ var App = React.createClass({
 
         <nav className="nav">
          <ul className="nav-ul">
-           <li className="nav-li"><IndexLink className="Links" to="/"><i className="fa fa-home fa-3x"></i></IndexLink></li>
+           <li className="nav-li-first"><IndexLink className="Links" to="/"><i className="fa fa-home fa-3x"></i></IndexLink></li>
              <li className="nav-li"><Link className="Links" to="/create-scorecard"><Glyphicon className="list-icon"glyph="list" /></Link></li>
                <li className="nav-li"><Link className="Links" to="/graphs"><Glyphicon className="stats-icon" glyph="stats" /></Link></li>
              <li className="nav-li"><Link className="Links" to="/chat"><i className="fa fa-comment fa-2x"></i></Link></li>
